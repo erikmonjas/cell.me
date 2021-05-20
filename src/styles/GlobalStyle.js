@@ -255,6 +255,9 @@ const GlobalStyle = createGlobalStyle`
   * {
     box-sizing: border-box;
   }
+
+  @import url('https://fonts.googleapis.com/css2?family=Anton&family=Lato:ital,wght@0,100;0,700;1,300&display=swap');
+
 `;
  
 export default GlobalStyle
