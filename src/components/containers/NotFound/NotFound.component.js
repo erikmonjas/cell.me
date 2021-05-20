@@ -1,11 +1,11 @@
 import React from 'react'
 
-const Layout = ({ className }) => {
+const NotFound = ({ className }) => {
   return (
     <div className={className}>
-      Layout
+      NotFound
     </div>
   )
 }
 
-export default Layout
+export default NotFound
