@@ -1,10 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { useStore } from 'react-redux'
 
 const Layout = ({ className, children }) => {
-  const store = useStore()
-  console.log(store.getState())
   return (
     <div className={className}>
       <header className="header">
