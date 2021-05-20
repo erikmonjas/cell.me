@@ -242,16 +242,7 @@ const GlobalStyle = createGlobalStyle`
   button {
     outline: none;
   }
-  ::-webkit-scrollbar {
-    width: 10px;
-  }
-  ::-webkit-scrollbar-track {
-    background: #000000;
-  }
-  ::-webkit-scrollbar-thumb {
-    background: #8C6239 100%;
-    border-radius: 5px;
-  }
+  
   * {
     box-sizing: border-box;
   }

@@ -6,13 +6,17 @@ export default styled(Layout)`
     background-color: ${({ theme }) => theme.colors.primary};
     width: 100%;
     color: ${({ theme }) => theme.colors.white};
-    padding: 15px 0;
+    padding: 10px 0;
   }
 
   .logo {
-    font-family: ${({ theme }) => theme.fonts.anton};
-    text-transform: uppercase;
+    font-family: ${({ theme }) => theme.fonts.oswald};
     font-size: 30px;
-    line-height: 0.9;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+
+  .main {
+    padding-top: 50px;
   }
 `

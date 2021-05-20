@@ -7,6 +7,6 @@ export default {
   },
   fonts: {
     lato: 'Lato',
-    anton: 'Anton',
+    oswald: 'Oswald',
   }
 }

@@ -12,7 +12,7 @@ const Layout = ({ className, children }) => {
           <p className="logo">cell.me</p>
         </div>
       </header>
-      <main>
+      <main className="main">
         <div className="container">
           {children}
         </div>
