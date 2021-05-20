@@ -11,10 +11,8 @@ export default styled(Layout)`
 
   .logo {
     font-family: ${({ theme }) => theme.fonts.anton};
+    text-transform: uppercase;
     font-size: 30px;
-    line-height: 0.8;
-    span {
-      display: block;
-    }
+    line-height: 0.9;
   }
 `

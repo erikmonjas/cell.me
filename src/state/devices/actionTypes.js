@@ -1,1 +1,2 @@
 export const FETCH_DEVICES = 'FETCH_DEVICES'
+export const SET_DEVICES = 'SET_DEVICES'

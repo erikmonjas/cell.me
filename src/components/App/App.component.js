@@ -4,6 +4,7 @@ import {
   Switch,
   Route,
 } from 'react-router-dom'
+import PropTypes from 'prop-types'
 
 import theme from '../../styles/theme'
 import GlobalStyle from '../../styles/GlobalStyle'
@@ -31,3 +32,7 @@ export const App = ({ className }) => {
 }
 
 export default App;
+
+App.propTypes = {
+  className: PropTypes.string.isRequired,
+}
