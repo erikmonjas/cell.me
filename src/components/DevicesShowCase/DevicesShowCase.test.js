@@ -4,7 +4,7 @@ import { cleanup, screen } from '@testing-library/react'
 
 import renderWithTheme from '../../utils/tests'
 import DevicesShowCase from './DevicesShowCase.component'
-import mockDevice from './constants/mockDevice'
+import mockDevice from '../../constants/devices/mockDevice'
 
 describe('DevicesShowCase', () => {
   

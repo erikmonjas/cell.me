@@ -1,7 +1,7 @@
 import React from 'react'
 import { cleanup, render } from '@testing-library/react'
 import DeviceCard from './DeviceCard.component'
-import mockDevice from '../../constants/mockDevice'
+import mockDevice from '../../../../constants/devices/mockDevice'
 
 afterEach(cleanup)
 

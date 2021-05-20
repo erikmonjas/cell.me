@@ -15,10 +15,7 @@ export default styled(DeviceCard)`
   cursor: pointer;
   transition: 0.3s ease;
   &:hover {
-    transform: translateY(-10px);
-    .text-wrapper {
-      background-color: ${({ theme }) => theme.colors.secondary}; 
-    }
+    transform: scale(1.05);
   }
 
   .text-wrapper {
