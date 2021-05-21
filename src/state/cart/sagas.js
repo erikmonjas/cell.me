@@ -1,5 +1,5 @@
 import { takeLatest, call } from 'redux-saga/effects'
-import { FETCH_DEVICES, FETCH_DEVICE_DETAILS, ADD_TO_CART } from './actionTypes'
+import { ADD_TO_CART } from './actionTypes'
 import axios from 'axios'
 import { API_BASE } from '../../constants/api'
 

@@ -1,8 +1,7 @@
 export default {
   colors: {
     primary: '#00b0ff',
-    secondary: '#02dab0',
-    secondaryLight: '#01f7c7',
+    secondary: '#ef0b74',
     white: '#ffffff',
     black: '#000000',
     grey: '#737373',
@@ -10,5 +9,9 @@ export default {
   fonts: {
     lato: 'Lato',
     oswald: 'Oswald',
+  },
+  breakpoints: {
+    desktop: '992px',
+    tablet: '768px',
   }
 }

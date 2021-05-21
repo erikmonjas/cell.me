@@ -20,6 +20,16 @@ export default styled(DeviceCard)`
     transform: scale(1.05);
   }
 
+  @media (max-width: ${({ theme }) => theme.breakpoints.desktop}) {
+    width: 48%;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
+    width: 100%;
+    margin-left: 0;
+  }
+  
+
   .text-wrapper {
     background-color: ${({ theme }) => theme.colors.primary};
     flex: 1;

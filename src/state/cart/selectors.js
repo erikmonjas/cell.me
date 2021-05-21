@@ -1,1 +1,1 @@
-export const getLoading = state => state.ui.loading
+export const getCartItems = state => state.cart.items

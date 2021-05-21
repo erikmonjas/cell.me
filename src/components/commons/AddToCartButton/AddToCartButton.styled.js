@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import AddToCartButton from './AddToCartButton.component'
 
 export default styled(AddToCartButton)`
-  background-color: ${({ theme }) => theme.colors.secondaryLight};
+  background-color: ${({ theme }) => theme.colors.secondary};
   width: 100%;
   padding: 10px;
   color: ${({ theme }) => theme.colors.white};
@@ -15,7 +15,7 @@ export default styled(AddToCartButton)`
   border-radius: 4px;
   &:hover {
     background-color: ${({ theme }) => theme.colors.white};
-    color: ${({ theme }) => theme.colors.secondaryLight};
+    color: ${({ theme }) => theme.colors.secondary};
     transform: scale(1.01);
   }
 `

@@ -28,6 +28,7 @@ export default styled(DevicesShowCase)`
     margin-left: -5%;
     padding: 15px 5%;
     padding-top: 5px;
+    margin-bottom: 20px;
     background-color: ${({ theme }) => theme.colors.white};
   }
 
@@ -45,6 +46,15 @@ export default styled(DevicesShowCase)`
     display: flex;
     flex-wrap: wrap;
     align-items: stretch;
+
+    @media (max-width: ${({ theme }) => theme.breakpoints.desktop}) {
+      justify-content: space-around;
+    }
+
+    @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
+      flex-direction: column;
+      align-items: center;
+    }
   }
 
   .no-match {

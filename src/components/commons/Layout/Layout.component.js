@@ -1,15 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Link } from 'react-router-dom'
+import Header from '../Header/Header.container'
 
 const Layout = ({ className, children }) => {
   return (
     <div className={className}>
-      <header className="header">
-        <div className="container">
-          <Link className="logo" to="/">cell.me</Link>
-        </div>
-      </header>
+      <Header />
       <main className="main">
         <div className="container">
           {children}

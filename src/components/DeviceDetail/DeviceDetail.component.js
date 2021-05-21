@@ -30,7 +30,7 @@ const DeviceDetail = ({
       ) : (
         <>
           <div className="image-wrapper">
-            <img src={deviceDetails.imgUrl} alt="device image" />
+            <img src={deviceDetails.imgUrl} alt="device" />
           </div>
           <div className="right-column">
             <Suspense fallback={<Loader />}>

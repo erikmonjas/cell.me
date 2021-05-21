@@ -1,5 +1,5 @@
 import { takeLatest, call, put } from 'redux-saga/effects'
-import { FETCH_DEVICES, FETCH_DEVICE_DETAILS, ADD_TO_CART } from './actionTypes'
+import { FETCH_DEVICES, FETCH_DEVICE_DETAILS } from './actionTypes'
 import { setDeviceDetails, setDevices } from './actionCreators'
 import axios from 'axios'
 import { setLoading } from '../ui/actionCreators'
