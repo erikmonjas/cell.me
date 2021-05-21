@@ -1,7 +1,8 @@
 import React from 'react'
-import { cleanup, render } from '@testing-library/react'
+import { cleanup } from '@testing-library/react'
 import DeviceCard from './DeviceCard.component'
 import mockDevice from '../../../../constants/devices/mockDevice'
+import wrappedRender from '../../../../utils/tests'
 
 afterEach(cleanup)
 
@@ -12,7 +13,7 @@ describe('DeviceCard', () => {
   }
 
   it('should render everything according to props', () => {
-    const { getByTestId } = render(
+    const { getByTestId } = wrappedRender(
       <DeviceCard {...defaultProps} />
     )
 

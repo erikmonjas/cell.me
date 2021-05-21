@@ -12,7 +12,9 @@ const DevicesShowCase = ({
   loading,
 }) => {
   useEffect(() => {
-    fetchDevices()
+    if (devices.length === 0) {
+      fetchDevices()
+    }
   }, [])
 
   const initialState = {

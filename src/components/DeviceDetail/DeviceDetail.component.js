@@ -1,9 +1,11 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, Suspense } from 'react'
 import { useParams } from 'react-router'
 import PropTypes from 'prop-types'
 import Loader from '../commons/Loader/Loader.container'
-import DeviceInfo from './components/DeviceInfo/DeviceInfo.container'
-import DeviceActions from './components/DeviceActions/DeviceActions.container'
+
+const DeviceInfo = React.lazy(() => import('./components/DeviceInfo/DeviceInfo.container'))
+const DeviceActions = React.lazy(() => import('./components/DeviceActions/DeviceActions.container'))
+
 
 const DeviceDetail = ({
   className,
@@ -14,7 +16,9 @@ const DeviceDetail = ({
   const { id } = useParams()
   
   useEffect(() => {
-    fetchDeviceDetails({ id })
+    if (deviceDetails.id !== id) {
+      fetchDeviceDetails({ id })
+    }
   }, [])
 
   return (
@@ -29,8 +33,10 @@ const DeviceDetail = ({
             <img src={deviceDetails.imgUrl} alt="device image" />
           </div>
           <div className="right-column">
-            <DeviceInfo />
-            <DeviceActions />
+            <Suspense fallback={<Loader />}>
+              <DeviceInfo />
+              <DeviceActions />
+            </Suspense>
           </div>
         </>
       )}

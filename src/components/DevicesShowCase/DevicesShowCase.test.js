@@ -16,13 +16,27 @@ describe('DevicesShowCase', () => {
     loading: '',
   }
 
-  it('should fetch devices', () => {
+  it('should not fetch devices', () => {
     wrappedRender(
       <DevicesShowCase {...defaultProps} />
     )
 
-    expect(defaultProps.fetchDevices).toHaveBeenCalled()
+    expect(defaultProps.fetchDevices).not.toHaveBeenCalled()
     expect(screen.getAllByTestId('device-card')).toHaveLength(defaultProps.devices.length)
+  })
+
+
+  it('should fetch devices', () => {
+    const localProps = {
+      ...defaultProps,
+      devices: []
+    }
+
+    wrappedRender(
+      <DevicesShowCase {...localProps} />
+    )
+
+    expect(localProps.fetchDevices).toHaveBeenCalled()
   })
 
   it('should filter devices', () => {
