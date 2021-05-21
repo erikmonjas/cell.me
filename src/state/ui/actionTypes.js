@@ -1,1 +1,4 @@
 export const SET_LOADING = 'SET_LOADING'
+
+export const OPEN_DEFAULT_MODAL = 'OPEN_DEFAULT_MODAL'
+export const CLOSE_MODAL = 'CLOSE_MODAL'

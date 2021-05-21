@@ -19,11 +19,12 @@ export default styled(Cart)`
     top: 0;
     right: 0;
     transform: translate(50%, -20%);
-    height: 30px;
-    width: 30px;
+    height: 20px;
+    width: 20px;
     background-color: ${({ theme }) => theme.colors.secondary};
+    color: ${({ theme }) => theme.colors.white};
     font-family: ${({ theme }) => theme.fonts.oswald};
-    font-size: 20px;
+    font-size: 12px;
     font-weight: 700;
     text-align: center;
     border-radius: 15px;

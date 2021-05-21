@@ -1,3 +1,7 @@
 export default {
-  loading: ''
+  loading: '',
+  modal: {
+    open: '',
+    children: null
+  }
 }
