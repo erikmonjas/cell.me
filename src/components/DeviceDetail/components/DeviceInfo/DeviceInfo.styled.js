@@ -28,10 +28,9 @@ export default styled(DeviceInfo)`
   }
 
   .specifications-title {
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 700;
     text-transform: uppercase;
-    text-align: center;
     margin-bottom: 20px;
   }
 

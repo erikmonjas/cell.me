@@ -48,7 +48,6 @@ export function* addToCart({ payload: { id, color, storage } }) {
         storageCode: storage
       }
     })
-    console.log(response)
   } catch(error) {
     console.log(error)
   }

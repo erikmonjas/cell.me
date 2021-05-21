@@ -4,6 +4,7 @@ import { firstLetterUpperCase } from '../../../../utils/text'
 import { stateReducer } from '../../../../utils/state/stateReducer'
 import AddToCartButton from '../../../commons/AddToCartButton/AddToCartButton.container'
 import { useParams } from 'react-router'
+import RadioGroup from '../../../commons/RadioGroup/RadioGroup.container'
 
 const DeviceActions = ({ className, deviceDetails: { options } }) => {
   const { id } = useParams()
@@ -17,23 +18,19 @@ const DeviceActions = ({ className, deviceDetails: { options } }) => {
 
   const [state, setState] = useReducer(stateReducer, {})
 
+  const generateRadios = key => key.map(({ code, name }) => ({ text: name, value: code }))
+
   return options ? (
     <div className={className}>
       {Object.keys(options).map(key => (
         <div className="option" key={key}>
           <h3 className="option-title">{firstLetterUpperCase(key)}</h3>
           <div className="radiogroup" role="radiogroup">
-            {options[key].map(({ name, code }) => (
-              <button
-                key={name}
-                className={`radio ${state[key] === code ? 'radio--active' : ''}`}
-                role="radio"
-                onClick={() => setState({ [key]: code })}
-              >
-                <span className="radio-button" />
-                <span className="radio-text">{name}</span>
-              </button>
-            ))}
+            <RadioGroup
+              radios={generateRadios(options[key])}
+              active={state[key]}
+              onClick={value => setState({ [key]: value })}
+            />
           </div>
         </div>
       ))}

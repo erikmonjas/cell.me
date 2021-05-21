@@ -6,6 +6,7 @@ import * as sagas from './sagas'
 import { setDeviceDetails, setDevices } from './actionCreators'
 import mockDevice from '../../constants/devices/mockDevice'
 import { setLoading } from '../ui/actionCreators'
+import { API_BASE } from '../../constants/api'
 
 describe('Devices sagas', () => {
   it('fetch devices', () => {
@@ -14,7 +15,7 @@ describe('Devices sagas', () => {
         [
           call(axios, {
             method: 'get',
-            url: 'https://front-test-api.herokuapp.com/api/product',
+            url: `${API_BASE}/product`,
           }),
           { data: [mockDevice] }
         ],
@@ -33,7 +34,7 @@ describe('Devices sagas', () => {
         [
           call(axios, {
             method: 'get',
-            url: `https://front-test-api.herokuapp.com/api/product/${id}`,
+            url: `${API_BASE}/product/${id}`,
           }),
           { data: mockData }
         ],
