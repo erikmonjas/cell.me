@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 const RadioGroup = ({
   className,
@@ -12,6 +13,8 @@ const RadioGroup = ({
       className={`${className} ${active === value ? `${className}--active` : ''}`}
       role="radio"
       onClick={() => onClick(value)}
+      data-testid={`radio-${value}`}
+      aria-checked={active === value}
     >
       <span className="radio-button" />
       <span className="radio-text">{text}</span>
@@ -20,3 +23,13 @@ const RadioGroup = ({
 }
 
 export default RadioGroup
+
+RadioGroup.propTypes = {
+  className: PropTypes.string.isRequired,
+  active: PropTypes.string.isRequired,
+  onClick: PropTypes.func.isRequired,
+  radios: PropTypes.arrayOf(PropTypes.shape({
+    text: PropTypes.string.isRequired,
+    value: PropTypes.string.isRequired,
+  })).isRequired,
+}

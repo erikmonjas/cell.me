@@ -1,5 +1,5 @@
 import React from 'react'
-import { cleanup, render, } from '@testing-library/react'
+import { cleanup } from '@testing-library/react'
 
 import Layout from './Layout.component'
 import wrappedRender from '../../../utils/tests'
