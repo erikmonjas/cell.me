@@ -9,7 +9,11 @@ const AddToCartButton = ({
   addToCart
  }) => {
   return (
-    <button className={className} onClick={() => addToCart({ id, color, storage })}>
+    <button
+      data-testid="add-to-cart-button"
+      className={className}
+      onClick={() => addToCart({ id, color, storage })}
+    >
       Add to cart
     </button>
   )
