@@ -1,9 +1,17 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { Link } from 'react-router-dom'
 
 const DeviceCard = ({ className, id, model, brand, price, imgUrl }) => {
+
+
   return (
-    <div className={className} data-testid="device-card">
+    <Link
+      className={className}
+      data-testid="device-card"
+      role="button"
+      to={`/product/${id}`}
+    >
       <img
         src={imgUrl}
         alt={`${brand}
@@ -15,7 +23,7 @@ const DeviceCard = ({ className, id, model, brand, price, imgUrl }) => {
         <p className="device-name" data-testid="device-card-text">{brand} {model}</p>
         {price && <p className="price" data-testid="device-card-price">{price}€</p>}
       </div>
-    </div>
+    </Link>
   )
 }
 

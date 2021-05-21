@@ -10,6 +10,7 @@ import theme from '../../styles/theme'
 import GlobalStyle from '../../styles/GlobalStyle'
 import Home from '../containers/Home/Home.container'
 import NotFound from '../containers/NotFound/NotFound.container'
+import DetailPage from '../containers/DetailPage/DetailPage.container'
 
 export const App = ({ className }) => {
   return (
@@ -18,6 +19,9 @@ export const App = ({ className }) => {
         <GlobalStyle />
         <ThemeProvider theme={theme}>
           <Switch>
+            <Route path="/product/:id">
+              <DetailPage />
+            </Route>
             <Route exact path="/">
               <Home />
             </Route>
