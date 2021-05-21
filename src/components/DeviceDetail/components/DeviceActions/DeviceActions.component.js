@@ -9,14 +9,17 @@ import RadioGroup from '../../../commons/RadioGroup/RadioGroup.container'
 const DeviceActions = ({ className, deviceDetails: { options } }) => {
   const { id } = useParams()
 
-  useEffect(() => {
-    options && setState(Object.keys(options).reduce((acc, key) => ({
-      ...acc,
-      [key]: options[key][0].code
-    }), {}))
-  }, [options])
+  const generateState = () => Object.keys(options).reduce((acc, key) => ({
+    ...acc,
+    [key]: options[key][0].code
+  }), {})
+  
+  const initialState = options ? generateState() : {}
+  const [state, setState] = useReducer(stateReducer, initialState)
 
-  const [state, setState] = useReducer(stateReducer, {})
+  useEffect(() => {
+    options && setState(generateState())
+  }, [options])
 
   const generateRadios = key => key.map(({ code, name }) => ({ text: name, value: code }))
 
@@ -24,7 +27,12 @@ const DeviceActions = ({ className, deviceDetails: { options } }) => {
     <div className={className}>
       {Object.keys(options).map(key => (
         <div className="option" key={key}>
-          <h3 className="option-title">{firstLetterUpperCase(key)}</h3>
+          <h3
+            className="option-title"
+            data-testid="option-title"
+          >
+            {firstLetterUpperCase(key)}
+          </h3>
           <div className="radiogroup" role="radiogroup">
             <RadioGroup
               radios={generateRadios(options[key])}

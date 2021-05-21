@@ -1,17 +1,28 @@
 import React from 'react'
 import { render } from '@testing-library/react'
 import { ThemeProvider } from 'styled-components'
-import { MemoryRouter } from 'react-router-dom'
+import { Router } from 'react-router-dom'
+import { createMemoryHistory } from 'history'
+import { Provider } from 'react-redux'
+import configureStore from 'redux-mock-store'
 
 import theme from '../../styles/theme'
 
-export const FullWrapper = ({ children }) => {
+const mockStore = configureStore([])
+const store = mockStore({})
+
+export const FullWrapper = ({ children, currentRoute = '/' }) => {
+  const history = createMemoryHistory()
+  history.push(currentRoute)
+  
   return (
-    <MemoryRouter>
+    <Router history={history}>
       <ThemeProvider theme={theme}>
-        {children}
+        <Provider store={store}>
+          {children}
+        </Provider>
       </ThemeProvider>
-    </MemoryRouter>
+    </Router>
   )
 }
 
@@ -21,7 +32,13 @@ export function wrappedRender(
   { ...options } = {}
 ) {
   function Wrapper(props) {
-    return <FullWrapper theme={theme} {...props} />
+    return (
+      <FullWrapper
+        theme={theme}
+        currentRoute={options.currentRoute}
+        {...props}
+      />
+    )
   }
   return render(ui, { wrapper: Wrapper, ...options })
 }

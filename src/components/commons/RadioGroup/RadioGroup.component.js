@@ -26,10 +26,16 @@ export default RadioGroup
 
 RadioGroup.propTypes = {
   className: PropTypes.string.isRequired,
-  active: PropTypes.string.isRequired,
+  active: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number
+  ]).isRequired,
   onClick: PropTypes.func.isRequired,
   radios: PropTypes.arrayOf(PropTypes.shape({
     text: PropTypes.string.isRequired,
-    value: PropTypes.string.isRequired,
+    value: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.number
+    ]),
   })).isRequired,
 }
