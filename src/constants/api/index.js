@@ -1,0 +1,1 @@
+export const API_BASE = 'https://front-test-api.herokuapp.com/api'
