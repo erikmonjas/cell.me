@@ -1,13 +1,16 @@
 import React, { useEffect, useReducer } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
 import PropTypes from 'prop-types'
 
-import { fetchDevices } from '../../state/devices/actionCreators'
-import { getDevices } from '../../state/devices/selectors'
 import DeviceCard from './components/DeviceCard/DeviceCard.container'
 import { stateReducer } from '../../utils/state/stateReducer'
+import Loader from '../commons/Loader/Loader.container'
 
-const DevicesShowCase = ({ className, fetchDevices, devices }) => {
+const DevicesShowCase = ({
+  className,
+  fetchDevices,
+  devices,
+  loading,
+}) => {
   useEffect(() => {
     fetchDevices()
   }, [])
@@ -47,22 +50,24 @@ const DevicesShowCase = ({ className, fetchDevices, devices }) => {
           />
         </div>
       </div>
-      <div className="showcase">
-        {state.filteredDevices.length > 0 ? state.filteredDevices.map(({ model, id, brand, price, imgUrl }) => (
-          <DeviceCard
-            key={id}
-            id={id}
-            model={model}
-            brand={brand}
-            price={price}
-            imgUrl={imgUrl}
-          />
-        )) : (
-          <p className="no-match" data-testid="no-match-text">
-            No smart phone matches your search. Please try some other product.
-          </p>
-        )}
-      </div>
+      {loading === '' ? (
+        <div className="showcase">
+          {state.filteredDevices.length > 0 ? state.filteredDevices.map(({ model, id, brand, price, imgUrl }) => (
+            <DeviceCard
+              key={id}
+              id={id}
+              model={model}
+              brand={brand}
+              price={price}
+              imgUrl={imgUrl}
+            />
+          )) : (
+            <p className="no-match" data-testid="no-match-text">
+              No smart phone matches your search. Please try some other product.
+            </p>
+          )}
+        </div>
+      ) : <Loader />}
     </div>
   )
 }
@@ -71,4 +76,13 @@ export default DevicesShowCase
 
 DevicesShowCase.propTypes = {
   className: PropTypes.string.isRequired,
+  fetchDevices: PropTypes.func.isRequired,
+  devices: PropTypes.arrayOf(PropTypes.shape({
+    model: PropTypes.string.isRequired,
+    brand: PropTypes.string.isRequired,
+    id: PropTypes.string.isRequired,
+    price: PropTypes.string.isRequired,
+    imgUrl: PropTypes.string.isRequired,
+  })).isRequired,
+  loading: PropTypes.string.isRequired,
 }

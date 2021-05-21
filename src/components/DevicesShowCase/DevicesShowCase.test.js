@@ -12,7 +12,8 @@ describe('DevicesShowCase', () => {
   const defaultProps = {
     className: '',
     devices: [mockDevice],
-    fetchDevices: jest.fn()
+    fetchDevices: jest.fn(),
+    loading: '',
   }
 
   it('should fetch devices', () => {
