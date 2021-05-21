@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import { addToCart } from '../../../state/devices/actionCreators'
+import { addToCart } from '../../../state/cart/actionCreators'
 import AddToCartButton from './AddToCartButton.styled'
 
 const mapStateToProps = () => ({})

@@ -6,5 +6,3 @@ export const setDevices = createAction(actionTypes.SET_DEVICES, ({ devices }) =>
 
 export const fetchDeviceDetails = createAction(actionTypes.FETCH_DEVICE_DETAILS, ({ id }) => ({ id }))
 export const setDeviceDetails = createAction(actionTypes.SET_DEVICE_DETAILS, ({ details }) => ({ details }))
-
-export const addToCart = createAction(actionTypes.ADD_TO_CART, ({ id, color, storage }) => ({ id, color, storage }))

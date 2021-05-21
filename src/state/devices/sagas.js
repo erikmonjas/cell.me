@@ -37,30 +37,10 @@ export function* fetchDeviceDetails({ payload: { id } }) {
   }
 }
 
-export function* addToCart({ payload: { id, color, storage } }) {
-  try {
-    const response = yield call(axios, {
-      method: 'post',
-      url: `${API_BASE}/cart`,
-      data: {
-        id,
-        colorCode: color,
-        storageCode: storage
-      }
-    })
-  } catch(error) {
-    console.log(error)
-  }
-}
-
 export function* watchFetchDevices() {
   yield takeLatest(FETCH_DEVICES, fetchDevicesSaga)
 }
 
 export function* watchFetchDeviceDetails() {
   yield takeLatest(FETCH_DEVICE_DETAILS, fetchDeviceDetails)
-}
-
-export function* watchAddToCart() {
-  yield takeLatest(ADD_TO_CART, addToCart)
 }

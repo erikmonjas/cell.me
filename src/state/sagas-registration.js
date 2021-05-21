@@ -1,8 +1,9 @@
 import { all, fork } from "redux-saga/effects"
+
+import { watchAddToCart } from "./cart/sagas"
 import {
   watchFetchDevices,
   watchFetchDeviceDetails,
-  watchAddToCart
 } from './devices/sagas'
 
 export default function* root() {
