@@ -12,12 +12,16 @@ export default styled(DeviceCard)`
   padding-top: 10px;
   text-align: center;
   position: relative;
-  color: ${({ theme }) => theme.colors.white};
+  color: ${({ theme }) => theme.colors.primary};
   cursor: pointer;
-  transition: 0.3s ease;
+  transition: transform 0.3s ease;
   &:hover {
-    color: ${({ theme }) => theme.colors.white};
+    color: ${({ theme }) => theme.colors.secondary};
     transform: scale(1.05);
+
+    .text-wrapper {
+      border-top-color: ${({ theme }) => theme.colors.secondary};
+    }
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.desktop}) {
@@ -31,13 +35,13 @@ export default styled(DeviceCard)`
   
 
   .text-wrapper {
-    background-color: ${({ theme }) => theme.colors.primary};
+    border-top: 2px solid ${({ theme }) => theme.colors.primary};
     flex: 1;
     width: 100%;
     margin-top: 20px;
     padding: 40px 20px;
     padding-top: 30px;
-    transition: 0.5s ease;
+    transition: 0.1s ease;
   }
 
   .device-image {
