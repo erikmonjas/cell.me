@@ -13,5 +13,6 @@ export default {
       {code: 2000, name: '16GB'},
       {code: 2001, name: '32GB'},
     ],
-  }
+  },
+  radio: 'FM radio'
 }

@@ -19,16 +19,20 @@ const DeviceInfo = ({ className, deviceDetails }) => {
   return (
     <div className={className}>
       <div className="device-highlight">
-        <h2 className="device-title">{deviceDetails.brand} {deviceDetails.model}</h2>
-        <p className="device-price">{deviceDetails.price}€</p>
+        <h2 className="device-title" data-testid="device-title">
+          {deviceDetails.brand} {deviceDetails.model}
+        </h2>
+        <p className="device-price" data-testid="device-price">
+          {deviceDetails.price}€
+        </p>
       </div>
       <div className="specifications-wrapper">
         <h3 className="specifications-title">Technical specifications</h3>
         {otherFeatures.map(({ text, description }) => (
-          <div key={text} className="device-specifications">
-            <p className="specification-title">{firstLetterUpperCase(text)}</p>
+          <div key={text} className="device-specifications" data-testid={`specifications-${text}`}>
+            <p className="specification-title" data-testid={`title-${text}`}>{firstLetterUpperCase(text)}</p>
             <div className="specification-description">
-              {description.map(desc => <p key={desc}>{desc}</p>)}
+              {description.map(desc => <p key={desc} data-testid={`description-${text}`}>{desc}</p>)}
             </div>
           </div>
         ))}
