@@ -5,6 +5,12 @@ export default styled(DeviceDetail)`
   display: flex;
   justify-content: space-between;
   position: relative;
+  margin-bottom: 50px;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.desktop}) {
+    flex-direction: column;
+    align-items: center;
+  }
 
   .loader-wrapper {
     width: 100%;
@@ -20,9 +26,16 @@ export default styled(DeviceDetail)`
     img {
       width: 100%;
     }
+    @media (max-width: ${({ theme }) => theme.breakpoints.desktop}) {
+      position: static;
+      margin-bottom: 30px;
+    }
   }
 
   .right-column {
     width: calc(100% - 190px);
+    @media (max-width: ${({ theme }) => theme.breakpoints.desktop}) {
+      width: 100%;
+    }
   }
 `

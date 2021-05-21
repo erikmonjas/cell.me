@@ -33,13 +33,11 @@ const DeviceActions = ({ className, deviceDetails: { options } }) => {
           >
             {firstLetterUpperCase(key)}
           </h3>
-          <div className="radiogroup" role="radiogroup">
-            <RadioGroup
-              radios={generateRadios(options[key])}
-              active={state[key]}
-              onClick={value => setState({ [key]: value })}
-            />
-          </div>
+          <RadioGroup
+            radios={generateRadios(options[key])}
+            active={state[key]}
+            onClick={value => setState({ [key]: value })}
+          />
         </div>
       ))}
       {state.colors && state.storages && (

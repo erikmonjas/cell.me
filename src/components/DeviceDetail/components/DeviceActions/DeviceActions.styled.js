@@ -17,8 +17,4 @@ export default styled(DeviceActions)`
     font-weight: 700;
     margin-bottom: 5px;
   }
-
-  .radiogroup {
-    display: flex;
-  }
 `

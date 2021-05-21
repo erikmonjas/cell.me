@@ -7,19 +7,23 @@ const RadioGroup = ({
   active,
   onClick
 }) => {
-  return radios.map(({ text, value}) => (
-    <button
-      key={value}
-      className={`${className} ${active === value ? `${className}--active` : ''}`}
-      role="radio"
-      onClick={() => onClick(value)}
-      data-testid={`radio-${value}`}
-      aria-checked={active === value}
-    >
-      <span className="radio-button" />
-      <span className="radio-text">{text}</span>
-    </button>
-  ))
+  return (
+    <div className={className} role="radiogroup">
+      {radios.map(({ text, value}) => (
+        <button
+          key={value}
+          className={`radio ${active === value ? 'radio--active' : ''}`}
+          role="radio"
+          onClick={() => onClick(value)}
+          data-testid={`radio-${value}`}
+          aria-checked={active === value}
+        >
+          <span className="radio-button" />
+          <span className="radio-text">{text}</span>
+        </button>
+      ))}
+    </div>
+  )
 }
 
 export default RadioGroup

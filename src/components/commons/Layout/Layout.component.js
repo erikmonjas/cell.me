@@ -11,6 +11,11 @@ const Layout = ({ className, children }) => {
           {children}
         </div>
       </main>
+      <footer className="footer">
+        <div className="container">
+          <div className="author">Developed by&nbsp;<a href="https://erikmonjas.com/">Érik Monjas</a></div>
+        </div>
+      </footer>
     </div>
   )
 }

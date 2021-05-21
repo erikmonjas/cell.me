@@ -11,13 +11,13 @@ export default styled(BreadCrumbs)`
     align-items: center;
     justify-content: space-between;
     position: relative;
-    color: ${({ theme }) => theme.colors.secondary};
+    color: ${({ theme }) => theme.colors.primary};
     font-weight: 700;
     &:first-of-type {
       margin-left: 0;
     }
     &:last-of-type {
-      color: ${({ theme }) => theme.colors.primary};
+      color: ${({ theme }) => theme.colors.secondary};
     }
 
     &:after {

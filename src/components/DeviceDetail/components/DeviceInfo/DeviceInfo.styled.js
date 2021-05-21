@@ -21,10 +21,13 @@ export default styled(DeviceInfo)`
   }
 
   .specifications-wrapper {
-    border: 2px solid ${({ theme }) => theme.colors.primary};
+    border-bottom: 2px solid ${({ theme }) => theme.colors.primary};
     padding: 20px;
     max-height: 400px;
     overflow: auto;
+    @media (max-width: ${({ theme }) => theme.breakpoints.desktop}) {
+      padding: 15px;
+    }
   }
 
   .specifications-title {
@@ -37,6 +40,13 @@ export default styled(DeviceInfo)`
   .device-specifications {
     display: flex;
     margin-bottom: 15px;
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+    @media (max-width: ${({ theme }) => theme.breakpoints.desktop}) {
+      flex-direction: column;
+      margin-bottom: 20px;
+    }
   }
 
   .specification-title {

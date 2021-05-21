@@ -3,13 +3,29 @@ import RadioGroup from './RadioGroup.component'
 
 export default styled(RadioGroup)`
   display: flex;
-  align-items: center;
-  color: ${({ theme }) => theme.colors.white};
-  margin-left: 30px;
-  &:first-of-type {
-    margin-left: 0;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
+    flex-direction: column;
   }
-  &--active {
+
+  .radio {
+    display: flex;
+    align-items: center;
+    color: ${({ theme }) => theme.colors.white};
+    margin-left: 30px;
+    &:first-of-type {
+      margin-left: 0;
+    }
+    @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
+      margin-left: 0;
+      margin-bottom: 10px;
+      &:last-of-type {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  .radio--active {
     .radio-button {
       &:before {
         content: '';
