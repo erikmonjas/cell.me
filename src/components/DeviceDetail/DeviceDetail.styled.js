@@ -6,6 +6,11 @@ export default styled(DeviceDetail)`
   justify-content: space-between;
   position: relative;
 
+  .loader-wrapper {
+    width: 100%;
+    margin-top: 20vh;
+  }
+
   .image-wrapper {
     width: 150px;
     height: fit-content;
