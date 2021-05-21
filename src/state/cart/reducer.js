@@ -5,18 +5,23 @@ import { combineReducers } from 'redux'
 
 const items = handleActions(
   {
-    [actions.addToCart]: (state, { payload: { id }}) => ({
-      ...state,
-      [id]: {
-        id: id,
-        amount: state[id] ? state[id].amount + 1 : 1,
+    [actions.addToCart]: (state, { payload: { id, color, storage }}) => {
+      const fullID = `${id}-color${color}-storage${storage}`
+      return {
+        ...state,
+        [fullID]: {
+          id: fullID,
+          amount: state[fullID] ? state[fullID].amount + 1 : 1,
+          color,
+          storage
+        }
       }
-    }),
+    },
     [actions.removeFromCart]: (state, { payload: { id }}) => {
       const newState = {
         ...state,
         [id]: {
-          id: id,
+          ...state[id],
           amount: state[id].amount - 1,
         }
       }
