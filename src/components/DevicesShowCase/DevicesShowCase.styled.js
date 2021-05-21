@@ -43,17 +43,16 @@ export default styled(DevicesShowCase)`
   }
 
   .showcase {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: stretch;
-
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-column-gap: 5%;
+    grid-row-gap: 80px;
+    justify-items: center;
     @media (max-width: ${({ theme }) => theme.breakpoints.desktop}) {
-      justify-content: space-around;
+      grid-template-columns: repeat(2, 1fr);
     }
-
     @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
-      flex-direction: column;
-      align-items: center;
+      grid-template-columns: repeat(1, 1fr);
     }
   }
 

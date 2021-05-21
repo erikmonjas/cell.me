@@ -2,19 +2,18 @@ import styled from 'styled-components'
 import DeviceCard from './DeviceCard.component'
 
 export default styled(DeviceCard)`
+  width: 100%;
   box-shadow: 0px 14px 15px 0px rgba(0,0,0,0.1);
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 23%;
-  margin-left: 2%;
-  margin-bottom: 60px;
   padding-top: 10px;
   text-align: center;
   position: relative;
   color: ${({ theme }) => theme.colors.primary};
   cursor: pointer;
   transition: transform 0.3s ease;
+  max-width: 250px;
   &:hover {
     color: ${({ theme }) => theme.colors.secondary};
     transform: scale(1.05);
@@ -24,12 +23,7 @@ export default styled(DeviceCard)`
     }
   }
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.desktop}) {
-    width: 48%;
-  }
-
   @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
-    width: 100%;
     margin-left: 0;
   }
   
