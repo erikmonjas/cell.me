@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Link, useLocation } from 'react-router-dom'
+import { firstLetterUpperCase } from '../../../utils/text'
 
 const BreadCrumbs = ({ className, crumbs }) => {
   const { pathname } = useLocation()
@@ -8,7 +9,7 @@ const BreadCrumbs = ({ className, crumbs }) => {
     <div className={className}>
       {crumbs.map(({ text, link }) => (
         <Link key={text} className="crumb" to={link || pathname}>
-          {`${text.charAt(0).toUpperCase()}${text.slice(1)}`}
+          {firstLetterUpperCase(text)}
         </Link>
       ))}
     </div>

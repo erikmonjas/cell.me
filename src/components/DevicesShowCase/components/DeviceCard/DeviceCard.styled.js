@@ -16,6 +16,7 @@ export default styled(DeviceCard)`
   cursor: pointer;
   transition: 0.3s ease;
   &:hover {
+    color: ${({ theme }) => theme.colors.white};
     transform: scale(1.05);
   }
 
@@ -48,5 +49,6 @@ export default styled(DeviceCard)`
     bottom: 20px;
     left: 50%;
     transform: translateX(-50%);
+    font-family: ${({ theme }) => theme.fonts.oswald};
   }
 `
