@@ -33,41 +33,49 @@ const DevicesShowCase = ({
     })
   }, [state.search])
 
+  useEffect(() => {
+    setState({
+      filteredDevices: filterDevices()
+    })
+  }, [devices])
+
   const handleSearchChange = ({ target }) => {
     setState({ search: target.value.toLowerCase() })
   }
 
   return (
     <div className={className}>
-      <div className="search-bar">
-        <div className="search-input-wrapper">
-          <input
-            type="text"
-            placeholder="Search"
-            className="search-input"
-            onChange={handleSearchChange}
-            data-testid="search-input"
-          />
-        </div>
-      </div>
-      {loading === '' ? (
-        <div className="showcase">
-          {state.filteredDevices.length > 0 ? state.filteredDevices.map(({ model, id, brand, price, imgUrl }) => (
-            <DeviceCard
-              key={id}
-              id={id}
-              model={model}
-              brand={brand}
-              price={price}
-              imgUrl={imgUrl}
-            />
-          )) : (
-            <p className="no-match" data-testid="no-match-text">
-              No smart phone matches your search. Please try some other product.
-            </p>
-          )}
-        </div>
-      ) : <Loader />}
+      {loading === 'devices-showcase' ? <Loader /> : (
+        <>
+          <div className="search-bar">
+            <div className="search-input-wrapper">
+              <input
+                type="text"
+                placeholder="Search"
+                className="search-input"
+                onChange={handleSearchChange}
+                data-testid="search-input"
+              />
+            </div>
+          </div>
+          <div className="showcase">
+            {state.filteredDevices.length > 0 ? state.filteredDevices.map(({ model, id, brand, price, imgUrl }) => (
+              <DeviceCard
+                key={id}
+                id={id}
+                model={model}
+                brand={brand}
+                price={price}
+                imgUrl={imgUrl}
+              />
+            )) : (
+              <p className="no-match" data-testid="no-match-text">
+                No smart phone matches your search. Please try some other product.
+              </p>
+            )}
+          </div>
+        </>
+      )}
     </div>
   )
 }

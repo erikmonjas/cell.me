@@ -17,7 +17,7 @@ export function* fetchDevicesSaga() {
     console.log(error)
   }
   finally {
-    yield put(setLoading({ loading: '' }))
+    // yield put(setLoading({ loading: '' }))
   }
 }
 

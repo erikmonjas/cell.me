@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 const Loader = ({ className }) => {
   return (
     <div className={className}>
-      <p>loading</p>
+      <div className="loader" />
     </div>
   )
 }
