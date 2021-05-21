@@ -20,9 +20,4 @@ export default styled(DeviceDetail)`
   .right-column {
     width: calc(100% - 190px);
   }
-
-  .options-wrapper {
-    margin-top: 30px;
-    background-color: ${({ theme }) => theme.colors.secondaryLight};
-  }
 `

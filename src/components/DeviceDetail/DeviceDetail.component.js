@@ -3,6 +3,7 @@ import { useParams } from 'react-router'
 import PropTypes from 'prop-types'
 import { firstLetterUpperCase } from '../../utils/text'
 import DeviceInfo from './components/DeviceInfo/DeviceInfo.container'
+import DeviceActions from './components/DeviceActions/DeviceActions.container'
 
 const DeviceDetail = ({
   className,
@@ -22,18 +23,7 @@ const DeviceDetail = ({
       </div>
       <div className="right-column">
         <DeviceInfo />
-        {/* <div className="options-wrapper">
-          {Object.keys(deviceDetails.options).map(key => (
-            <div className="option" key={key}>
-              <h3>{firstLetterUpperCase(key)}</h3>
-              {deviceDetails.options[key].map(({ name }) => (
-                <div className="radiogroup" role="radiogroup">
-                  <div className="radio" role="radio">{name}</div>
-                </div>
-              ))}
-            </div>
-          ))}
-        </div> */}
+        <DeviceActions />
       </div>
     </div>
   )
