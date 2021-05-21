@@ -8,7 +8,12 @@ const BreadCrumbs = ({ className, crumbs }) => {
   return (
     <div className={className}>
       {crumbs.map(({ text, link }) => (
-        <Link key={text} className="crumb" to={link || pathname}>
+        <Link
+          key={text}
+          className="crumb"
+          to={link || pathname}
+          data-testid="crumb"
+        >
           {firstLetterUpperCase(text)}
         </Link>
       ))}
