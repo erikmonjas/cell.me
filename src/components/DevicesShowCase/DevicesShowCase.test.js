@@ -1,7 +1,7 @@
 import React from 'react'
 import { cleanup, screen, fireEvent } from '@testing-library/react'
 
-import renderWithTheme from '../../utils/tests'
+import wrappedRender from '../../utils/tests'
 import DevicesShowCase from './DevicesShowCase.component'
 import mockDevice from '../../constants/devices/mockDevice'
 
@@ -17,7 +17,7 @@ describe('DevicesShowCase', () => {
   }
 
   it('should fetch devices', () => {
-    renderWithTheme(
+    wrappedRender(
       <DevicesShowCase {...defaultProps} />
     )
 
@@ -30,7 +30,7 @@ describe('DevicesShowCase', () => {
       ...defaultProps,
       devices: [mockDevice, { model: 'galaxy 8', brand: 'samsung', id: 'wejor', price: '400', imgUrl: '/some-route' }]
     }
-    const { getByTestId, queryByTestId } = renderWithTheme(
+    const { getByTestId, queryByTestId } = wrappedRender(
       <DevicesShowCase {...localProps} />
     )
     const searchInput = getByTestId('search-input')

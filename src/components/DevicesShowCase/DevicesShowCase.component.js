@@ -46,7 +46,7 @@ const DevicesShowCase = ({
   return (
     <div className={className}>
       {loading === 'devices-showcase' ? <Loader /> : (
-        <>
+        <div className="showcase-wrapper">
           <div className="search-bar">
             <div className="search-input-wrapper">
               <input
@@ -74,7 +74,7 @@ const DevicesShowCase = ({
               </p>
             )}
           </div>
-        </>
+        </div>
       )}
     </div>
   )

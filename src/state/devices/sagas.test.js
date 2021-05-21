@@ -16,7 +16,7 @@ describe('Devices sagas', () => {
             method: 'get',
             url: 'https://front-test-api.herokuapp.com/api/product',
           }),
-          [mockDevice]
+          { data: [mockDevice] }
         ],
       ])
       .put(setLoading({ loading: 'devices-showcase' }))

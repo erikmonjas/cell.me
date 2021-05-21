@@ -11,13 +11,12 @@ export function* fetchDevicesSaga() {
       method: 'get',
       url: 'https://front-test-api.herokuapp.com/api/product',
     })
-    console.log(data)
     yield put(setDevices({ devices: data }))
   } catch(error) {
     console.log(error)
   }
   finally {
-    // yield put(setLoading({ loading: '' }))
+    yield put(setLoading({ loading: '' }))
   }
 }
 

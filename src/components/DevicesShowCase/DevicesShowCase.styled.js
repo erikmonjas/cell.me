@@ -2,6 +2,21 @@ import styled from 'styled-components'
 import DevicesShowCase from './DevicesShowCase.component'
 
 export default styled(DevicesShowCase)`
+  .showcase-wrapper {
+    opacity: 0;
+    animation: fadein 1s forwards;
+    animation-delay: 0.3s;
+  }
+
+  @keyframes fadein {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
   .search-bar {
     display: flex;
     justify-content: flex-end;

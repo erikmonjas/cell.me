@@ -1,6 +1,8 @@
 import React from 'react'
 import { cleanup, render, } from '@testing-library/react'
+
 import Layout from './Layout.component'
+import wrappedRender from '../../../utils/tests'
 
 afterEach(cleanup)
 
@@ -11,7 +13,7 @@ describe('Layout', () => {
   }
 
   it('should render everything according to props', () => {
-    const { getByTestId } = render(
+    const { getByTestId } = wrappedRender(
       <Layout {...defaultProps} />
     )
 
