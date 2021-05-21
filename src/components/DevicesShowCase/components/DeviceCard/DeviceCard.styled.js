@@ -6,7 +6,8 @@ export default styled(DeviceCard)`
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 21%;
+  width: 23%;
+  margin-left: 2%;
   margin-bottom: 60px;
   padding-top: 10px;
   text-align: center;

@@ -13,10 +13,8 @@ export default styled(Home)`
 
   .presentation {
     margin-top: 20px;
-    margin-bottom: 60px;
     p {
       margin-bottom: 15px;
-      color: #737373;
     }
   }
 `
