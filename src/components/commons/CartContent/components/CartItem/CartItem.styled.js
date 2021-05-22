@@ -59,6 +59,7 @@ export default styled(CartItem)`
     font-weight: 700;
     border-radius: 15px;
     font-size: 28px;
+    cursor: pointer;
     &:before, &:after {
       content: '';
       display: block;

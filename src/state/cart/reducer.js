@@ -17,6 +17,15 @@ const items = handleActions(
         }
       }
     },
+    [actions.subtractFromCart]: (state, { payload: { id }}) => {
+      return {
+        ...state,
+        [id]: {
+          ...state[id],
+          amount: state[id].amount - 1,
+        }
+      }
+    },
     [actions.removeFromCart]: (state, { payload: { id }}) => {
       const newState = {
         ...state,

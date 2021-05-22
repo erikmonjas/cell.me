@@ -13,6 +13,7 @@ export default styled(RadioGroup)`
     align-items: center;
     color: ${({ theme }) => theme.colors.white};
     margin-left: 30px;
+    cursor: pointer;
     &:first-of-type {
       margin-left: 0;
     }
