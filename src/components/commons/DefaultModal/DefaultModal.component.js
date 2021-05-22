@@ -10,9 +10,17 @@ const DefaultModal = ({ className, children, closeModal }) => {
   }, [])
   return (
     <div className={className}>
-      <button className="modal-overlay" onClick={closeModal} />
+      <button
+        className="modal-overlay"
+        onClick={closeModal}
+        data-testid="modal-overlay"
+      />
       <div className="modal-inner">
-        <button className="close-button" onClick={closeModal}>
+        <button
+          className="close-button"
+          onClick={closeModal}
+          data-testid="close-button"
+        >
           &#x2715;
         </button>
         <div className="modal-content">
@@ -27,4 +35,9 @@ export default DefaultModal
 
 DefaultModal.propTypes = {
   className: PropTypes.string.isRequired,
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node
+  ]).isRequired,
+  closeModal: PropTypes.func.isRequired,
 }

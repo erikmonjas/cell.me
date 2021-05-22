@@ -21,4 +21,5 @@ export default Cart
 Cart.propTypes = {
   className: PropTypes.string.isRequired,
   cartItems: PropTypes.object.isRequired,
+  openDefaultModal: PropTypes.func.isRequired,
 }

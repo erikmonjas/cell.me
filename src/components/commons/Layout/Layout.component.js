@@ -37,5 +37,7 @@ Layout.propTypes = {
   children: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.node),
     PropTypes.node
-  ]).isRequired
+  ]).isRequired,
+  openModal: PropTypes.string.isRequired,
+  closeModal: PropTypes.func.isRequired,
 }
