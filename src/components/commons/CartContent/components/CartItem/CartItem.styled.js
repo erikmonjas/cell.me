@@ -5,6 +5,10 @@ export default styled(CartItem)`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin-bottom: 20px;
+  &:last-of-type {
+    margin-bottom: 0;
+  }
 
   .device-image {
     width: 40px;
@@ -22,5 +26,69 @@ export default styled(CartItem)`
     color: ${({ theme }) => theme.colors.primary};
     font-size: 26px;
     text-transform: uppercase;
+  }
+  
+  .price {
+    font-family: ${({ theme }) => theme.fonts.oswald};
+    color: ${({ theme }) => theme.colors.primary};
+    font-weight: 700;
+  }
+
+  .device-details {
+    display: flex;
+    text-transform: lowercase;
+    font-size: 14px;
+  }
+
+  .device-storage {
+    margin-left: 10px;
+  }
+
+  .amount-wrapper {
+    display: flex;
+    align-items: center;
+  }
+
+  .action-button {
+    position: relative;
+    width: 25px;
+    height: 25px;
+    border: 2px solid ${({ theme }) => theme.colors.primary};
+    color: ${({ theme }) => theme.colors.white};
+    font-family: ${({ theme }) => theme.fonts.oswald};
+    font-weight: 700;
+    border-radius: 15px;
+    font-size: 28px;
+    &:before, &:after {
+      content: '';
+      display: block;
+      background-color: ${({ theme }) => theme.colors.primary};
+      height: 2px;
+      width: 10px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    &:disabled {
+      border-color: ${({ theme }) => theme.colors.grey};
+      &:before, &:after {
+        background-color: ${({ theme }) => theme.colors.grey};
+      }
+    }
+  }
+
+  .minus-button {
+    margin-right: 10px;
+    &:after {
+      display: none;
+    }
+  }
+  
+  .plus-button {
+    margin-left: 10px;
+    &:after {
+      transform: translate(-50%, -50%) rotate(90deg);
+    }
   }
 `

@@ -4,7 +4,6 @@ import { getDetails } from '../../../../../state/devices/selectors'
 import CartItem from './CartItem.styled'
 
 const mapStateToProps = state => ({
-  items: getCartItems(state),
   details: getDetails(state)
 })
 
