@@ -4,10 +4,9 @@ import { firstLetterUpperCase } from '../../../../utils/text'
 import { stateReducer } from '../../../../utils/state/stateReducer'
 import AddToCartButton from '../../../commons/AddToCartButton/AddToCartButton.container'
 import RadioGroup from '../../../commons/RadioGroup/RadioGroup.container'
-import findDevice from '../../../../utils/commons/findDevice'
 
 const DeviceActions = ({ className, details, id }) => {
-  const { options, price } = findDevice({ details, id })
+  const { options, price } = details[id]
 
   const generateState = () => Object.keys(options).reduce((acc, key) => ({
     ...acc,
@@ -58,5 +57,5 @@ export default DeviceActions
 
 DeviceActions.propTypes = {
   className: PropTypes.string.isRequired,
-  deviceDetails: PropTypes.object.isRequired,
+  details: PropTypes.object.isRequired,
 }

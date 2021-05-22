@@ -28,6 +28,11 @@ export default styled(DefaultModal)`
     border-radius: 4px;
   }
 
+  .modal-content {
+    max-height: 80vh;
+    overflow-y: auto;
+  }
+
   .close-button {
     cursor: pointer;
     position: absolute;

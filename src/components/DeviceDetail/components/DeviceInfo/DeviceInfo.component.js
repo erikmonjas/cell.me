@@ -1,10 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { firstLetterUpperCase } from '../../../../utils/text'
-import findDevice from '../../../../utils/commons/findDevice'
 
 const DeviceInfo = ({ className, details, id }) => {
-  const deviceDetails = findDevice({ details, id })
+  const deviceDetails = details[id]
   const otherFeatures = Object.keys(deviceDetails).reduce((acc = [], key) => {
     const unnecesaryKeys = ['id', 'brand', 'model', 'price', 'imgUrl', 'colors', 'internalMemory', 'options']
     if (unnecesaryKeys.includes(key)) {
@@ -48,5 +47,5 @@ export default DeviceInfo
 DeviceInfo.propTypes = {
   className: PropTypes.string.isRequired,
   id: PropTypes.string.isRequired,
-  deviceDetails: PropTypes.object.isRequired,
+  details: PropTypes.object.isRequired,
 }

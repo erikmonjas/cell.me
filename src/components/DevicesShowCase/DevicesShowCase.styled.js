@@ -4,7 +4,7 @@ import DevicesShowCase from './DevicesShowCase.component'
 export default styled(DevicesShowCase)`
   .showcase-wrapper {
     opacity: 0;
-    animation: fadein 1s forwards;
+    animation: fadein 0.5s forwards;
     transform: translateY(50px);
   }
 

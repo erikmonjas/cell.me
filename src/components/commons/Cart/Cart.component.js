@@ -1,11 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { ReactComponent as CartIcon } from './assets/cart.svg'
+import CartContent from '../CartContent/CartContent.container'
 
 const Cart = ({ className, cartItems, openDefaultModal }) => {
   const totalItems = Object.values(cartItems).reduce((acc, { amount }) => acc + amount, 0)
 
-  const handleCartClick = () => openDefaultModal({ children: <p>items</p> })
+  const handleCartClick = () => openDefaultModal({ children: <CartContent /> })
 
   return (
     <button className={className} onClick={handleCartClick}>

@@ -14,7 +14,7 @@ export default styled(DeviceDetail)`
     margin-bottom: 50px;
     opacity: 0;
     transform: translateY(50px);
-    animation: fadein 1s forwards;
+    animation: fadein 0.5s forwards;
 
     @media (max-width: ${({ theme }) => theme.breakpoints.desktop}) {
       flex-direction: column;
