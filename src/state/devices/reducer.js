@@ -12,7 +12,10 @@ const devices = handleActions(
 
 const details = handleActions(
   {
-    [actions.setDeviceDetails]: (_, { payload: { details }}) => details,
+    [actions.setDeviceDetails]: (state, { payload: { details }}) => ({
+      ...state,
+      [details.id]: details
+    }),
   },
   initialState.devices,
 )

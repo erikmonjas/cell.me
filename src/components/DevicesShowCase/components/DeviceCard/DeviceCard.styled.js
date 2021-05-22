@@ -44,19 +44,27 @@ export default styled(DeviceCard)`
 
   .device-name {
     margin-bottom: 20px;
-    font-size: 24px;
-    font-family: ${({ theme }) => theme.fonts.oswald};
-    font-weight: 300;
+    font-size: 20px;
+    font-weight: 700;
     text-transform: uppercase;
   }
 
-  .price {
-    font-size: 20px;
+  .bottom-text {
     font-weight: 700;
     position: absolute;
     bottom: 20px;
     left: 50%;
     transform: translateX(-50%);
     font-family: ${({ theme }) => theme.fonts.oswald};
+  }
+
+  .price {
+    font-size: 20px;
+  }
+
+  .out-of-stock {
+    color: ${({ theme }) => theme.colors.grey};
+    text-transform: uppercase;
+    font-size: 14px;
   }
 `

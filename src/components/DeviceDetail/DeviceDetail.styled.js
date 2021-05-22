@@ -2,19 +2,35 @@ import styled from 'styled-components'
 import DeviceDetail from './DeviceDetail.component'
 
 export default styled(DeviceDetail)`
-  display: flex;
-  justify-content: space-between;
-  position: relative;
-  margin-bottom: 50px;
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.desktop}) {
-    flex-direction: column;
-    align-items: center;
-  }
-
   .loader-wrapper {
     width: 100%;
     margin-top: 20vh;
+  }
+
+  .detail-wrapper {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    margin-bottom: 50px;
+    opacity: 0;
+    transform: translateY(50px);
+    animation: fadein 1s forwards;
+
+    @media (max-width: ${({ theme }) => theme.breakpoints.desktop}) {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+
+  @keyframes fadein {
+    from {
+      transform: translateY(50px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
   }
 
   .image-wrapper {

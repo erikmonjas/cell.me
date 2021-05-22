@@ -21,7 +21,11 @@ const DeviceCard = ({ className, id, model, brand, price, imgUrl }) => {
       />
       <div className="text-wrapper">
         <p className="device-name" data-testid="device-card-text">{brand} {model}</p>
-        {price && <p className="price" data-testid="device-card-price">{price}€</p>}
+        {price ? (
+            <p className="bottom-text price" data-testid="device-card-price">{price}€</p>
+          ) : (
+            <p className="bottom-text out-of-stock">Out of stock</p>   
+        )}
       </div>
     </Link>
   )

@@ -3,11 +3,11 @@ import PropTypes from 'prop-types'
 import { firstLetterUpperCase } from '../../../../utils/text'
 import { stateReducer } from '../../../../utils/state/stateReducer'
 import AddToCartButton from '../../../commons/AddToCartButton/AddToCartButton.container'
-import { useParams } from 'react-router'
 import RadioGroup from '../../../commons/RadioGroup/RadioGroup.container'
+import findDevice from '../../../../utils/commons/findDevice'
 
-const DeviceActions = ({ className, deviceDetails: { options } }) => {
-  const { id } = useParams()
+const DeviceActions = ({ className, details, id }) => {
+  const { options, price } = findDevice({ details, id })
 
   const generateState = () => Object.keys(options).reduce((acc, key) => ({
     ...acc,
@@ -40,12 +40,15 @@ const DeviceActions = ({ className, deviceDetails: { options } }) => {
           />
         </div>
       ))}
-      {state.colors && state.storages && (
+      {state.colors && state.storages && price !== '' && (
         <AddToCartButton
           id={id}
           color={state.colors}
           storage={state.storages}
         />
+      )}
+      {price === '' && (
+        <p className="unavailable">At this time we are out of stock for this device. Please visit us soon to check availability.</p>
       )}
     </div>
   ) : null

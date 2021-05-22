@@ -18,6 +18,7 @@ export default styled(Layout)`
 
   .main {
     padding-top: 50px;
+    min-height: 85vh;
   }
 
   .footer {

@@ -1,25 +1,35 @@
-import React, { useEffect, Suspense } from 'react'
+import React, { useEffect, Suspense, useState } from 'react'
 import { useParams } from 'react-router'
 import PropTypes from 'prop-types'
 import Loader from '../commons/Loader/Loader.container'
+import findDevice from '../../utils/commons/findDevice'
 
 const DeviceInfo = React.lazy(() => import('./components/DeviceInfo/DeviceInfo.container'))
 const DeviceActions = React.lazy(() => import('./components/DeviceActions/DeviceActions.container'))
-
 
 const DeviceDetail = ({
   className,
   loading,
   fetchDeviceDetails,
-  deviceDetails
+  details
 }) => {
+  const [localDetails, setLocalDetails] = useState({
+    imgUrl: '',
+  })
+  const [isFetched, setIsFetched] = useState(false)
+
   const { id } = useParams()
   
   useEffect(() => {
-    if (deviceDetails.id !== id) {
+    const detailsFetched = findDevice({ details, id })
+    if (detailsFetched) {
+      setLocalDetails(detailsFetched)
+      setIsFetched(true)
+    } else {
       fetchDeviceDetails({ id })
+      setIsFetched(false)
     }
-  }, [])
+  }, [details])
 
   return (
     <div className={className}>
@@ -28,17 +38,19 @@ const DeviceDetail = ({
           <Loader />
         </div>
       ) : (
-        <>
+        <div className="detail-wrapper">
           <div className="image-wrapper">
-            <img src={deviceDetails.imgUrl} alt="device" />
+            <img src={localDetails.imgUrl} alt="device" />
           </div>
           <div className="right-column">
-            <Suspense fallback={<Loader />}>
-              <DeviceInfo />
-              <DeviceActions />
-            </Suspense>
+            {isFetched && (
+              <Suspense fallback={<Loader />}>
+                <DeviceInfo id={id} />
+                <DeviceActions id={id} />
+              </Suspense>
+            )}
           </div>
-        </>
+        </div>
       )}
     </div>
   )
@@ -50,5 +62,5 @@ DeviceDetail.propTypes = {
   className: PropTypes.string.isRequired,
   loading: PropTypes.string.isRequired,
   fetchDeviceDetails: PropTypes.func.isRequired,
-  deviceDetails: PropTypes.object.isRequired,
+  details: PropTypes.object.isRequired,
 }

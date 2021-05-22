@@ -1,10 +1,10 @@
 import { connect } from 'react-redux'
 
-import { getDeviceDetails } from '../../../../state/devices/selectors'
+import { getDetails } from '../../../../state/devices/selectors'
 import DeviceActions from './DeviceActions.styled'
 
 const mapStateToProps = state => ({
-  deviceDetails: getDeviceDetails(state)
+  details: getDetails(state)
 })
 
 const mapDispatchToProps = () => ({})

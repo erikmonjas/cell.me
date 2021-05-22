@@ -1,5 +1,5 @@
 import React from 'react'
-import { cleanup, fireEvent } from '@testing-library/react'
+import { cleanup } from '@testing-library/react'
 
 import Cart from './Cart.component'
 import wrappedRender from '../../../utils/tests'

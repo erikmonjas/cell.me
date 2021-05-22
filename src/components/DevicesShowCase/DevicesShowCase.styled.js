@@ -5,14 +5,16 @@ export default styled(DevicesShowCase)`
   .showcase-wrapper {
     opacity: 0;
     animation: fadein 1s forwards;
-    animation-delay: 0.3s;
+    transform: translateY(50px);
   }
 
   @keyframes fadein {
     from {
+      transform: translateY(50px);
       opacity: 0;
     }
     to {
+      transform: translateY(0);
       opacity: 1;
     }
   }
