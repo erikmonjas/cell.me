@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { ReactComponent as TrashIcon } from './assets/trash.svg'
+import { getRealID } from '../../../../../utils/commons'
 
 const CartItem = ({
   className,
@@ -10,8 +11,7 @@ const CartItem = ({
   removeFromCart,
   subtractFromCart,
 }) => {
-  const [firstIDSplit] = item.id.split('color')
-  const realID = firstIDSplit.substring(0, firstIDSplit.length - 1)
+  const realID = getRealID(item.id)
 
   const {
     brand,

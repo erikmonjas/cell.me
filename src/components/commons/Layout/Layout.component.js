@@ -1,10 +1,17 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import PropTypes from 'prop-types'
 import Header from '../Header/Header.container'
 import DefaultModal from '../DefaultModal/DefaultModal.container'
 import modalTypes from '../../../constants/modals/modalTypes'
 
-const Layout = ({ className, children, openModal }) => {
+const Layout = ({ className, children, openModal, closeModal }) => {
+  useEffect(() => {
+    window.addEventListener('beforeunload', () => closeModal())
+    return () => {
+      window.removeEventListener('beforeunload', () => closeModal())
+    }
+  }, [])
+
   return (
     <div className={className}>
       <Header />

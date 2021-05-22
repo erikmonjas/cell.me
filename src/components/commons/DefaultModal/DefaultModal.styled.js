@@ -17,7 +17,8 @@ export default styled(DefaultModal)`
 
   .modal-inner {
     position: absolute;
-    width: 950px;
+    width: 90%;
+    max-width: 950px;
     height: fit-content;
     top: 50%;
     left: 50%;
