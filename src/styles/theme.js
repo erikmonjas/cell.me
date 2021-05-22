@@ -5,6 +5,7 @@ export default {
     white: '#ffffff',
     black: '#000000',
     grey: '#737373',
+    greyLight: '#aaaaaa',
   },
   fonts: {
     lato: 'Lato',

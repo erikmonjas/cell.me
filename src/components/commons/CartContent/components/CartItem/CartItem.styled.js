@@ -6,6 +6,9 @@ export default styled(CartItem)`
   align-items: center;
   justify-content: space-between;
   margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid ${({ theme }) => theme.colors.primary};
+
   &:last-of-type {
     margin-bottom: 0;
   }
@@ -19,6 +22,10 @@ export default styled(CartItem)`
     display: flex;
     align-items: center;
     justify-content: space-between;
+  }
+
+  .item-text {
+    width: 300px;
   }
 
   .device-name {
@@ -72,9 +79,9 @@ export default styled(CartItem)`
       transform: translate(-50%, -50%);
     }
     &:disabled {
-      border-color: ${({ theme }) => theme.colors.grey};
+      border-color: ${({ theme }) => theme.colors.greyLight};
       &:before, &:after {
-        background-color: ${({ theme }) => theme.colors.grey};
+        background-color: ${({ theme }) => theme.colors.greyLight};
       }
     }
   }
