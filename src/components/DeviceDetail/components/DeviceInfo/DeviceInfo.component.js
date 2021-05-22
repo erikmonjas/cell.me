@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { firstLetterUpperCase } from '../../../../utils/text'
+import { deviceWithDetails } from '../../../../constants/models/devices'
 
 const DeviceInfo = ({ className, details, id }) => {
   const deviceDetails = details[id]
@@ -47,5 +48,5 @@ export default DeviceInfo
 DeviceInfo.propTypes = {
   className: PropTypes.string.isRequired,
   id: PropTypes.string.isRequired,
-  details: PropTypes.object.isRequired,
+  details: PropTypes.objectOf(deviceWithDetails).isRequired,
 }

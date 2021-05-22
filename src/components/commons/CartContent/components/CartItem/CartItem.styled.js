@@ -10,6 +10,7 @@ export default styled(CartItem)`
   border-bottom: 1px solid ${({ theme }) => theme.colors.primary};
   @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
     flex-direction: column;
+    align-items: flex-start;
   }
 
   &:last-of-type {

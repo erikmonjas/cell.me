@@ -2,6 +2,7 @@ import React, { useEffect, Suspense, useState } from 'react'
 import { useParams } from 'react-router'
 import PropTypes from 'prop-types'
 import Loader from '../commons/Loader/Loader.container'
+import { deviceWithDetails } from '../../constants/models/devices'
 
 const DeviceInfo = React.lazy(() => import('./components/DeviceInfo/DeviceInfo.container'))
 const DeviceActions = React.lazy(() => import('./components/DeviceActions/DeviceActions.container'))
@@ -60,6 +61,6 @@ export default DeviceDetail
 DeviceDetail.propTypes = {
   className: PropTypes.string.isRequired,
   loading: PropTypes.string.isRequired,
-  details: PropTypes.object.isRequired,
+  details: PropTypes.objectOf(deviceWithDetails).isRequired,
   fetchDeviceDetails: PropTypes.func.isRequired,
 }

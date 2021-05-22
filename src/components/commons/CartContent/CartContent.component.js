@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import CartItem from './components/CartItem/CartItem.container'
+import { cartItem } from '../../../constants/models/cart'
 
 const CartContent = ({
   className,
@@ -23,4 +24,5 @@ export default CartContent
 
 CartContent.propTypes = {
   className: PropTypes.string.isRequired,
+  items: PropTypes.objectOf(cartItem).isRequired
 }

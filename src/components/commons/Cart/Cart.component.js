@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { ReactComponent as CartIcon } from './assets/cart.svg'
 import CartContent from '../CartContent/CartContent.container'
+import { cartItem } from '../../../constants/models/cart'
 
 const Cart = ({ className, cartItems, openDefaultModal }) => {
   const totalItems = Object.values(cartItems).reduce((acc, { amount }) => acc + amount, 0)
@@ -20,6 +21,6 @@ export default Cart
 
 Cart.propTypes = {
   className: PropTypes.string.isRequired,
-  cartItems: PropTypes.object.isRequired,
+  cartItems: PropTypes.objectOf(cartItem).isRequired,
   openDefaultModal: PropTypes.func.isRequired,
 }

@@ -4,6 +4,7 @@ import PropTypes from 'prop-types'
 import DeviceCard from './components/DeviceCard/DeviceCard.container'
 import { stateReducer } from '../../utils/state/stateReducer'
 import Loader from '../commons/Loader/Loader.container'
+import { deviceWithoutDetails } from '../../constants/models/devices'
 
 const DevicesShowCase = ({
   className,
@@ -87,12 +88,6 @@ export default DevicesShowCase
 DevicesShowCase.propTypes = {
   className: PropTypes.string.isRequired,
   fetchDevices: PropTypes.func.isRequired,
-  devices: PropTypes.arrayOf(PropTypes.shape({
-    model: PropTypes.string.isRequired,
-    brand: PropTypes.string.isRequired,
-    id: PropTypes.string.isRequired,
-    price: PropTypes.string.isRequired,
-    imgUrl: PropTypes.string.isRequired,
-  })).isRequired,
+  devices: PropTypes.arrayOf(deviceWithoutDetails).isRequired,
   loading: PropTypes.string.isRequired,
 }

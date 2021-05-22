@@ -2,6 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { ReactComponent as TrashIcon } from './assets/trash.svg'
 import { getRealID } from '../../../../../utils/commons'
+import { deviceWithDetails } from '../../../../../constants/models/devices'
+import { cartItem } from '../../../../../constants/models/cart'
 
 const CartItem = ({
   className,
@@ -69,4 +71,9 @@ export default CartItem
 
 CartItem.propTypes = {
   className: PropTypes.string.isRequired,
+  item: cartItem.isRequired,
+  details: PropTypes.objectOf(deviceWithDetails).isRequired,
+  addToCart: PropTypes.func.isRequired,
+  removeFromCart: PropTypes.func.isRequired,
+  subtractFromCart: PropTypes.func.isRequired,
 }
