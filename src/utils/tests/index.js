@@ -9,16 +9,16 @@ import configureStore from 'redux-mock-store'
 import theme from '../../styles/theme'
 
 const mockStore = configureStore([])
-const store = mockStore({})
+const store = (state = {}) => mockStore(state)
 
-export const FullWrapper = ({ children, currentRoute = '/' }) => {
+export const FullWrapper = ({ children, currentRoute = '/', state = {} }) => {
   const history = createMemoryHistory()
   history.push(currentRoute)
-  
+
   return (
     <Router history={history}>
       <ThemeProvider theme={theme}>
-        <Provider store={store}>
+        <Provider store={store(state)}>
           {children}
         </Provider>
       </ThemeProvider>
@@ -36,6 +36,7 @@ export function wrappedRender(
       <FullWrapper
         theme={theme}
         currentRoute={options.currentRoute}
+        state={options.state}
         {...props}
       />
     )

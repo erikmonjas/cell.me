@@ -12,7 +12,8 @@ afterEach(cleanup)
 describe('DeviceActions', () => {
   const defaultProps = {
     className: '',
-    deviceDetails: mockDevice
+    id: mockDevice.id,
+    details: {[mockDevice.id]: mockDevice}
   }
 
   it('should render everything according to props', () => {
@@ -23,7 +24,7 @@ describe('DeviceActions', () => {
       { currentRoute: '/product/testid' }
     )
 
-    Object.keys(defaultProps.deviceDetails.options).map((key, index) => {
+    Object.keys(defaultProps.details[mockDevice.id].options).map((key, index) => {
       expect(getAllByTestId('option-title')[index]).toHaveTextContent(firstLetterUpperCase(key))
     })
   })

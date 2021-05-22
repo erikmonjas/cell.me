@@ -4,14 +4,14 @@ import { cleanup } from '@testing-library/react'
 import DeviceInfo from './DeviceInfo.component'
 import mockDevice from '../../../../constants/devices/mockDevice'
 import wrappedRender from '../../../../utils/tests'
-import { firstLetterUpperCase } from '../../../../utils/text'
 
 afterEach(cleanup)
 
 describe('DeviceInfo', () => {
   const defaultProps = {
     className: '',
-    deviceDetails: mockDevice
+    id: mockDevice.id,
+    details: {[mockDevice.id]: mockDevice}
   }
 
   it('should render everything according to props', () => {
@@ -19,8 +19,8 @@ describe('DeviceInfo', () => {
       <DeviceInfo {...defaultProps} />
     )
 
-    expect(getByTestId('device-title')).toHaveTextContent(`${deviceDetails.brand} ${deviceDetails.model}`)
-    expect(getByTestId('device-price')).toHaveTextContent(`${deviceDetails.price}€`)
+    expect(getByTestId('device-title')).toHaveTextContent(`${mockDevice.brand} ${mockDevice.model}`)
+    expect(getByTestId('device-price')).toHaveTextContent(`${mockDevice.price}€`)
     expect(getByTestId('title-radio')).toHaveTextContent('Radio')
     expect(getByTestId('description-radio')).toHaveTextContent('FM radio')
   })

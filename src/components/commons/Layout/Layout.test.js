@@ -14,7 +14,11 @@ describe('Layout', () => {
 
   it('should render everything according to props', () => {
     const { getByTestId } = wrappedRender(
-      <Layout {...defaultProps} />
+      <Layout {...defaultProps} />, { state: {
+        cart: {
+          items: []
+        }
+      }}
     )
 
     expect(getByTestId('test-child')).toBeTruthy()
