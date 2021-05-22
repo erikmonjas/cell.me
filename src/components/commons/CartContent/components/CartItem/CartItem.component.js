@@ -43,21 +43,23 @@ const CartItem = ({
           </div>
         </div>
         <p className="price">{price * item.amount}€</p>
-        <div className="amount-wrapper">
-          <button
-            className="action-button minus-button"
-            disabled={item.amount < 2}
-            onClick={() => subtractFromCart({ id: item.id })}
-          />
-          <p>{item.amount}</p>
-          <button
-            className="action-button plus-button"
-            onClick={() => addToCart({ id: realID, color: item.color, storage: item.storage })}
-          />
+        <div className="actions-wrapper">
+          <div className="amount-wrapper">
+            <button
+              className="action-button minus-button"
+              disabled={item.amount < 2}
+              onClick={() => subtractFromCart({ id: item.id })}
+            />
+            <p>{item.amount}</p>
+            <button
+              className="action-button plus-button"
+              onClick={() => addToCart({ id: realID, color: item.color, storage: item.storage })}
+            />
+          </div>
+          <button className="trash" onClick={() => removeFromCart({ id: item.id })}>
+            <TrashIcon />
+          </button>
         </div>
-        <button className="trash" onClick={() => removeFromCart({ id: item.id })}>
-          <TrashIcon />
-        </button>
       </div>
     </div>
   )
