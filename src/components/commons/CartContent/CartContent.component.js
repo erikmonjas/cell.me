@@ -13,7 +13,7 @@ const CartContent = ({
       <div>
         {itemsArray.length > 0 ?
           itemsArray.map(item => <CartItem item={item} key={item.id} />) :
-          <p className="empty-cart">Your cart is currently empty</p>
+          <p className="empty-cart" data-testid="empty-cart">Your cart is currently empty</p>
         }
       </div>
     </div>

@@ -4,7 +4,7 @@ import { call } from 'redux-saga/effects'
 
 import * as sagas from './sagas'
 import { setDeviceDetails, setDevices } from './actionCreators'
-import mockDevice from '../../constants/devices/mockDevice'
+import mockDevice from '../../constants/mocks/device'
 import { setLoading } from '../ui/actionCreators'
 import { API_BASE } from '../../constants/api'
 

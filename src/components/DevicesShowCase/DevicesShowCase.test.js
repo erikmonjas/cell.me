@@ -3,7 +3,7 @@ import { cleanup, screen, fireEvent } from '@testing-library/react'
 
 import wrappedRender from '../../utils/tests'
 import DevicesShowCase from './DevicesShowCase.component'
-import mockDevice from '../../constants/devices/mockDevice'
+import mockDevice from '../../constants/mocks/device'
 
 describe('DevicesShowCase', () => {
   

@@ -1,7 +1,7 @@
 import React from 'react'
 import { cleanup } from '@testing-library/react'
 import DeviceCard from './DeviceCard.component'
-import mockDevice from '../../../../constants/devices/mockDevice'
+import mockDevice from '../../../../constants/mocks/device'
 import wrappedRender from '../../../../utils/tests'
 
 afterEach(cleanup)

@@ -3,7 +3,7 @@ import ReactRouter from 'react-router'
 import { cleanup } from '@testing-library/react'
 
 import DeviceActions from './DeviceActions.component'
-import mockDevice from '../../../../constants/devices/mockDevice'
+import mockDevice from '../../../../constants/mocks/device'
 import wrappedRender from '../../../../utils/tests'
 import { firstLetterUpperCase } from '../../../../utils/text'
 

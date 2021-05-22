@@ -2,7 +2,7 @@ import React from 'react'
 import { cleanup } from '@testing-library/react'
 
 import DeviceInfo from './DeviceInfo.component'
-import mockDevice from '../../../../constants/devices/mockDevice'
+import mockDevice from '../../../../constants/mocks/device'
 import wrappedRender from '../../../../utils/tests'
 
 afterEach(cleanup)

@@ -30,7 +30,7 @@ const CartItem = ({
   const deviceStorage = findOptionName({ option: 'storages', optionCode: item.storage })
 
   return (
-    <div className={className}>
+    <div className={className} data-testid="cart-item">
       <img
         src={imgUrl}
         alt={model}
