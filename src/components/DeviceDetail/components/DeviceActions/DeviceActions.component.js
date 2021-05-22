@@ -57,5 +57,6 @@ export default DeviceActions
 
 DeviceActions.propTypes = {
   className: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired,
   details: PropTypes.object.isRequired,
 }

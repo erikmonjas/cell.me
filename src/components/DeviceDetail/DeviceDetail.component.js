@@ -61,4 +61,5 @@ DeviceDetail.propTypes = {
   className: PropTypes.string.isRequired,
   loading: PropTypes.string.isRequired,
   details: PropTypes.object.isRequired,
+  fetchDeviceDetails: PropTypes.func.isRequired,
 }
