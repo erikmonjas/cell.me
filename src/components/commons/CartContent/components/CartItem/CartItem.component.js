@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { ReactComponent as TrashIcon } from './assets/trash.svg'
 
 const CartItem = ({
   className,
@@ -9,7 +10,9 @@ const CartItem = ({
   removeFromCart,
   subtractFromCart,
 }) => {
-  const [realID] = item.id.split('-')
+  const [firstIDSplit] = item.id.split('color')
+  const realID = firstIDSplit.substring(0, firstIDSplit.length - 1)
+
   const {
     brand,
     model,
@@ -52,6 +55,9 @@ const CartItem = ({
             onClick={() => addToCart({ id: realID, color: item.color, storage: item.storage })}
           />
         </div>
+        <button className="trash" onClick={() => removeFromCart({ id: item.id })}>
+          <TrashIcon />
+        </button>
       </div>
     </div>
   )

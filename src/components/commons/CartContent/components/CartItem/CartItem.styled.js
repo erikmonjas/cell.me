@@ -99,4 +99,11 @@ export default styled(CartItem)`
       transform: translate(-50%, -50%) rotate(90deg);
     }
   }
+
+  .trash {
+    cursor: pointer;
+    svg path {
+      fill: ${({ theme }) => theme.colors.grey};
+    }
+  }
 `

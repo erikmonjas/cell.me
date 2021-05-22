@@ -27,15 +27,11 @@ const items = handleActions(
       }
     },
     [actions.removeFromCart]: (state, { payload: { id }}) => {
-      const newState = {
-        ...state,
-        [id]: {
-          ...state[id],
-          amount: state[id].amount - 1,
-        }
-      }
-      const filteredNewState = Object.keys(newState).filter(key => newState[key].amount > 0)
-      return filteredNewState
+      const filteredState = Object.values(state).reduce(
+        (acc, item) => item.id === id ? acc : {...acc, [item.id]: item},
+        {}
+      )
+      return filteredState
     },
     [actions.emptyCart]: () => initialState.items,
   },
