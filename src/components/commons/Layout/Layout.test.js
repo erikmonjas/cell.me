@@ -4,6 +4,7 @@ import { cleanup, screen } from '@testing-library/react'
 import Layout from './Layout.component'
 import wrappedRender from '../../../utils/tests'
 import modalTypes from '../../../constants/modals/modalTypes'
+import { getMockStore } from '../../../utils/tests/store'
 
 afterEach(cleanup)
 
@@ -17,11 +18,8 @@ describe('Layout', () => {
 
   it('should render everything according to props', () => {
     const { getByTestId } = wrappedRender(
-      <Layout {...defaultProps} />, { state: {
-        cart: {
-          items: {}
-        }
-      }}
+      <Layout {...defaultProps} />,
+      { state: getMockStore() }
     )
 
     expect(getByTestId('test-child')).toBeTruthy()
@@ -35,16 +33,14 @@ describe('Layout', () => {
       openModal: modalTypes.DEFAULT
     }
     const { getByTestId } = wrappedRender(
-      <Layout {...localProps} />, { state: {
-        cart: {
-          items: {}
-        },
+      <Layout {...localProps} />,
+      { state: getMockStore({ variation: {
         ui: {
           modal: {
             children: <p>testing</p>
           }
         }
-      }}
+      }})}
     )
 
     expect(getByTestId('default-modal')).toBeTruthy()
