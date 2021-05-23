@@ -61,7 +61,12 @@ export default styled(DevicesShowCase)`
   .no-match {
     margin: 0 auto;
     margin-top: 80px;
+    margin-bottom: 40px;
     width: 100%;
     text-align: center;
+    @media (max-width: ${({ theme }) => theme.breakpoints.desktop}) {
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
   }
 `

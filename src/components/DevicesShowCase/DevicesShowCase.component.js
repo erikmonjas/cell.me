@@ -61,22 +61,24 @@ const DevicesShowCase = ({
               />
             </div>
           </div>
-          <div className="showcase">
-            {state.filteredDevices.length > 0 ? state.filteredDevices.map(({ model, id, brand, price, imgUrl }) => (
-              <DeviceCard
-                key={id}
-                id={id}
-                model={model}
-                brand={brand}
-                price={price}
-                imgUrl={imgUrl}
-              />
-            )) : (
-              <p className="no-match" data-testid="no-match-text">
-                No smart phone matches your search. Please try some other product.
-              </p>
-            )}
-          </div>
+          {state.filteredDevices.length > 0 ? (
+            <div className="showcase">
+              {state.filteredDevices.map(({ model, id, brand, price, imgUrl }) => (
+                <DeviceCard
+                  key={id}
+                  id={id}
+                  model={model}
+                  brand={brand}
+                  price={price}
+                  imgUrl={imgUrl}
+                />
+              ))}
+            </div>
+          ) : (
+            <p className="no-match" data-testid="no-match-text">
+              No smart phone matches your search. Please try some other product.
+            </p>
+          )}
         </div>
       )}
     </div>
