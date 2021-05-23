@@ -19,7 +19,7 @@ const DeviceDetail = ({
   const [isFetched, setIsFetched] = useState(false)
 
   const { id } = useParams()
-  
+
   useEffect(() => {
     const detailsFetched = details[id]
     if (detailsFetched) {
@@ -40,7 +40,7 @@ const DeviceDetail = ({
       ) : (
         <div className="detail-wrapper">
           <div className="image-wrapper">
-            <img src={localDetails.imgUrl} alt="device" />
+            <img src={localDetails.imgUrl} alt="device" data-testid="device-image" />
           </div>
           <div className="right-column">
             {isFetched && (
