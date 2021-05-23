@@ -6,7 +6,7 @@ export const deviceWithoutDetails = {
   imgUrl: '/test.png',
 }
 
-export default {
+export const deviceWithDetails = {
   ...deviceWithoutDetails,
   options: {
     colors: [
@@ -20,3 +20,5 @@ export default {
   },
   radio: 'FM radio'
 }
+
+export default deviceWithDetails

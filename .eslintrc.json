@@ -1,0 +1,15 @@
+{
+  "extends": [
+    "react-app",
+    "react-app/jest"
+  ],
+  "overrides": [
+    {
+      "files": ["**/*.js"],
+      "rules": {
+        "react-hooks/exhaustive-deps": "off",
+        "array-callback-return": "off"
+      }
+    }
+  ]
+}

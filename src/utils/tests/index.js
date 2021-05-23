@@ -6,7 +6,7 @@ import { createMemoryHistory } from 'history'
 import { Provider } from 'react-redux'
 import configureStore from 'redux-mock-store'
 
-import theme from '../../styles/theme'
+import { theme } from '../../styles/theme'
 
 const mockStore = configureStore([])
 const store = (state = {}) => mockStore(state)

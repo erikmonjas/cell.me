@@ -1,5 +1,7 @@
 import mockDevice from './device';
 
-export default {
+const mockDetails = {
   [mockDevice.id]: mockDevice
 }
+
+export default mockDetails 

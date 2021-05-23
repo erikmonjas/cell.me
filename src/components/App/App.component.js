@@ -6,7 +6,7 @@ import {
 } from 'react-router-dom'
 import PropTypes from 'prop-types'
 
-import theme from '../../styles/theme'
+import { theme } from '../../styles/theme'
 import GlobalStyle from '../../styles/GlobalStyle'
 import Home from '../containers/Home/Home.container'
 import NotFound from '../containers/NotFound/NotFound.container'

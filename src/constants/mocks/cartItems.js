@@ -1,5 +1,7 @@
 import mockCartItem from './cartItem';
 
-export default {
+const mockCartItems = {
   [mockCartItem.id]: mockCartItem
 }
+
+export default mockCartItems
