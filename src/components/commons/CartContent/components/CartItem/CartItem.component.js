@@ -35,30 +35,37 @@ const CartItem = ({
         src={imgUrl}
         alt={model}
         className="device-image"
+        data-testid="device-image"
       />
       <div className="content">
         <div className="item-text">
-          <p className="device-name">{brand} {model}</p>
+          <p className="device-name" data-testid="device-name">{brand} {model}</p>
           <div className="device-details">
-            <p className="device-color">Color: {deviceColor.name}</p>
-            <p className="device-storage">Storage: {deviceStorage.name}</p>
+            <p className="device-color" data-testid="device-color">Color: {deviceColor.name}</p>
+            <p className="device-storage" data-testid="device-storage">Storage: {deviceStorage.name}</p>
           </div>
         </div>
-        <p className="price">{price * item.amount}€</p>
+        <p className="price" data-testid="price">{price * item.amount}€</p>
         <div className="actions-wrapper">
           <div className="amount-wrapper">
             <button
-              className="action-button minus-button"
+              className="action-button subtract-button"
               disabled={item.amount < 2}
+              data-testid="subtract-button"
               onClick={() => subtractFromCart({ id: item.id })}
             />
             <p>{item.amount}</p>
             <button
-              className="action-button plus-button"
+              className="action-button add-button"
+              data-testid="add-button"
               onClick={() => addToCart({ id: realID, color: item.color, storage: item.storage })}
             />
           </div>
-          <button className="trash" onClick={() => removeFromCart({ id: item.id })}>
+          <button
+            className="trash"
+            data-testid="remove-button"
+            onClick={() => removeFromCart({ id: item.id })}
+          >
             <TrashIcon />
           </button>
         </div>

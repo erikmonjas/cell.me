@@ -3,7 +3,7 @@ import { cleanup, screen, fireEvent } from '@testing-library/react'
 
 import wrappedRender from '../../utils/tests'
 import DevicesShowCase from './DevicesShowCase.component'
-import mockDevice from '../../constants/mocks/device'
+import { deviceWithoutDetails } from '../../constants/mocks/device'
 
 describe('DevicesShowCase', () => {
   
@@ -11,7 +11,7 @@ describe('DevicesShowCase', () => {
 
   const defaultProps = {
     className: '',
-    devices: [mockDevice],
+    devices: [ deviceWithoutDetails ],
     fetchDevices: jest.fn(),
     loading: '',
   }
@@ -42,7 +42,7 @@ describe('DevicesShowCase', () => {
   it('should filter devices', () => {
     const localProps = {
       ...defaultProps,
-      devices: [mockDevice, { model: 'galaxy 8', brand: 'samsung', id: 'wejor', price: '400', imgUrl: '/some-route' }]
+      devices: [deviceWithoutDetails, { model: 'galaxy 8', brand: 'samsung', id: 'wejor', price: '400', imgUrl: '/some-route' }]
     }
     const { getByTestId, queryByTestId } = wrappedRender(
       <DevicesShowCase {...localProps} />

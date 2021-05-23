@@ -122,14 +122,14 @@ export default styled(CartItem)`
     }
   }
 
-  .minus-button {
+  .subtract-button {
     margin-right: 10px;
     &:after {
       display: none;
     }
   }
   
-  .plus-button {
+  .add-button {
     margin-left: 10px;
     &:after {
       transform: translate(-50%, -50%) rotate(90deg);

@@ -9,7 +9,7 @@ const DefaultModal = ({ className, children, closeModal }) => {
     }
   }, [])
   return (
-    <div className={className}>
+    <div className={className} data-testid="default-modal">
       <button
         className="modal-overlay"
         onClick={closeModal}

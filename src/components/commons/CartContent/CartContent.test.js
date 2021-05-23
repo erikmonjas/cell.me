@@ -3,8 +3,8 @@ import { cleanup } from '@testing-library/react'
 
 import CartContent from './CartContent.component'
 import wrappedRender from '../../../utils/tests'
-import mockCartItem from '../../../constants/mocks/cartItem'
-import mockDevice from '../../../constants/mocks/device'
+import mockCartItems from '../../../constants/mocks/cartItems'
+import mockDetails from '../../../constants/mocks/details'
 
 afterEach(cleanup)
 
@@ -26,14 +26,12 @@ describe('CartContent', () => {
   it('should render cart items', () => {
     const localProps = {
       ...defaultProps,
-      items: {
-        [mockCartItem.id]: mockCartItem,
-      }
+      items: mockCartItems
     }
 
     const { getAllByTestId } = wrappedRender(
       <CartContent {...localProps} />,
-      { state: { devices: { details: { [mockDevice.id]: mockDevice } } } }
+      { state: { devices: { details: mockDetails } } }
     )
 
     expect(getAllByTestId('cart-item')).toHaveLength(1)

@@ -1,9 +1,13 @@
-export default {
+export const deviceWithoutDetails = {
   id: 'jheroiwr',
   model: 'Liquid z6',
   brand: 'acer',
   price: '120',
   imgUrl: '/test.png',
+}
+
+export default {
+  ...deviceWithoutDetails,
   options: {
     colors: [
       {code: 1000, name: 'Mystic Black'},

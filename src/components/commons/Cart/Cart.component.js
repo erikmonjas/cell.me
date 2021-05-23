@@ -10,7 +10,7 @@ const Cart = ({ className, cartItems, openDefaultModal }) => {
   const handleCartClick = () => openDefaultModal({ children: <CartContent /> })
 
   return (
-    <button className={className} onClick={handleCartClick}>
+    <button className={className} onClick={handleCartClick} data-testid="cart">
       <CartIcon />
       {totalItems > 0 && <span className="item-count" data-testid="item-count">{totalItems}</span>}
     </button>
