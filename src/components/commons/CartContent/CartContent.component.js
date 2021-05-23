@@ -1,7 +1,10 @@
-import React from 'react'
+import React, { Suspense } from 'react'
 import PropTypes from 'prop-types'
-import CartItem from './components/CartItem/CartItem.container'
+
 import { cartItem } from '../../../constants/models/cart'
+import Loader from '../Loader/Loader.container'
+
+const CartItem = React.lazy(() => import('./components/CartItem/CartItem.container'))
 
 const CartContent = ({
   className,
@@ -11,10 +14,12 @@ const CartContent = ({
   return (
     <div className={className}>
       <div>
-        {itemsArray.length > 0 ?
-          itemsArray.map(item => <CartItem item={item} key={item.id} />) :
-          <p className="empty-cart" data-testid="empty-cart">Your cart is currently empty</p>
-        }
+        <Suspense fallback={<Loader /> }>
+          {itemsArray.length > 0 ?
+            itemsArray.map(item => <CartItem item={item} key={item.id} />) :
+            <p className="empty-cart" data-testid="empty-cart">Your cart is currently empty</p>
+          }
+        </Suspense>
       </div>
     </div>
   )
