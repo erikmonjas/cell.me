@@ -14,14 +14,20 @@ const CartItem = ({
   subtractFromCart,
 }) => {
   const realID = getRealID(item.id)
-
+  const itemDetails = details[realID]
+  
+  if (!itemDetails) {
+    removeFromCart({ id: item.id })
+    return null
+  }
+  
   const {
     brand,
     model,
     price,
     imgUrl,
     options,
-  } = details[realID]
+  } = itemDetails
 
   const findOptionName = ({ option, optionCode }) =>
     options[option].find(({ code }) => code === optionCode)
