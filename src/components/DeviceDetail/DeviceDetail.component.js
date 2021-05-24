@@ -2,7 +2,7 @@ import React, { useEffect, Suspense, useState } from 'react'
 import { useParams } from 'react-router'
 import PropTypes from 'prop-types'
 import Loader from '../commons/Loader/Loader.container'
-import { deviceWithDetails } from '../../constants/models/devices'
+import { detailsModel } from '../../constants/models/details'
 
 const DeviceInfo = React.lazy(() => import('./components/DeviceInfo/DeviceInfo.container'))
 const DeviceActions = React.lazy(() => import('./components/DeviceActions/DeviceActions.container'))
@@ -19,6 +19,13 @@ const DeviceDetail = ({
   const [isFetched, setIsFetched] = useState(false)
 
   const { id } = useParams()
+
+  useEffect(() => {
+    isFetched && window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    })
+  }, [isFetched])
 
   useEffect(() => {
     const detailsFetched = details[id]
@@ -61,6 +68,6 @@ export default DeviceDetail
 DeviceDetail.propTypes = {
   className: PropTypes.string.isRequired,
   loading: PropTypes.string.isRequired,
-  details: PropTypes.objectOf(deviceWithDetails).isRequired,
+  details: detailsModel.isRequired,
   fetchDeviceDetails: PropTypes.func.isRequired,
 }

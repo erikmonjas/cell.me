@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { firstLetterUpperCase } from '../../../../utils/text'
-import { deviceWithDetails } from '../../../../constants/models/devices'
+import { detailsModel } from '../../../../constants/models/details'
 
 const DeviceInfo = ({ className, details, id }) => {
   const deviceDetails = details[id]
@@ -25,7 +25,7 @@ const DeviceInfo = ({ className, details, id }) => {
           {deviceDetails.brand} {deviceDetails.model}
         </h2>
         <p className="device-price" data-testid="device-price">
-          {deviceDetails.price}€
+          {deviceDetails.price ? `${deviceDetails.price}€` : 'Out of stock'}
         </p>
       </div>
       <div className="specifications-wrapper">
@@ -48,5 +48,5 @@ export default DeviceInfo
 DeviceInfo.propTypes = {
   className: PropTypes.string.isRequired,
   id: PropTypes.string.isRequired,
-  details: PropTypes.objectOf(deviceWithDetails).isRequired,
+  details: detailsModel.isRequired,
 }

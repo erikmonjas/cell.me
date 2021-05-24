@@ -4,7 +4,7 @@ import { firstLetterUpperCase } from '../../../../utils/text'
 import { stateReducer } from '../../../../utils/state/stateReducer'
 import AddToCartButton from '../../../commons/AddToCartButton/AddToCartButton.container'
 import RadioGroup from '../../../commons/RadioGroup/RadioGroup.container'
-import { deviceWithDetails } from '../../../../constants/models/devices'
+import { detailsModel } from '../../../../constants/models/details'
 
 const DeviceActions = ({ className, details, id }) => {
   const { options, price } = details[id]
@@ -59,5 +59,5 @@ export default DeviceActions
 DeviceActions.propTypes = {
   className: PropTypes.string.isRequired,
   id: PropTypes.string.isRequired,
-  details: PropTypes.objectOf(deviceWithDetails).isRequired,
+  details: detailsModel.isRequired,
 }
