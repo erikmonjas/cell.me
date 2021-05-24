@@ -3,7 +3,7 @@ import DeviceCard from './DeviceCard.component'
 
 export default styled(DeviceCard)`
   width: 100%;
-  box-shadow: 0px 14px 15px 0px rgba(0,0,0,0.1);
+  box-shadow: 0px 8px 8px 0px rgba(0,176,255, 0.1);
   display: flex;
   flex-direction: column;
   align-items: center;

@@ -23,7 +23,7 @@ export default styled(DevicesShowCase)`
     display: flex;
     justify-content: flex-end;
     position: sticky;
-    top: 0;
+    top: 60px;
     left: 0;
     z-index: 1;
     width: 110%;
