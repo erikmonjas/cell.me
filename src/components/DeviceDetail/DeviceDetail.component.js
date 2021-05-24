@@ -21,7 +21,7 @@ const DeviceDetail = ({
   const { id } = useParams()
 
   useEffect(() => {
-    isFetched && window.scrollTo({
+    window && isFetched && window.scrollTo({
       top: 0,
       behavior: 'smooth'
     })

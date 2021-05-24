@@ -9,6 +9,9 @@ import { deviceWithoutDetails } from '../../constants/mocks/device'
 import ReactRouter from 'react-router'
 
 describe('DeviceDetail', () => {
+  beforeEach(() => {
+    window.scrollTo = jest.fn()
+  })
   
   afterEach(cleanup)
 
