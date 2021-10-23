@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import Layout from '../../commons/Layout'
 import Loader from '../../commons/Loader'
 
-const DevicesShowcase = React.lazy(() => import('../../DevicesShowCase/DevicesShowCase.container'))
+const DevicesShowcase = React.lazy(() => import('../../DevicesShowCase'))
 
 const Home = ({ className }) => {
   return (

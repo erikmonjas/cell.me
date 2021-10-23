@@ -1,20 +1,24 @@
 import React, { useEffect, useReducer } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import PropTypes from 'prop-types'
 
-import DeviceCard from './components/DeviceCard/DeviceCard.container'
+import DeviceCard from './components/DeviceCard'
 import { stateReducer } from '../../utils/state/stateReducer'
 import Loader from '../commons/Loader'
-import { deviceWithoutDetails } from '../../constants/models/devices'
+import { getDevices } from '../../state/devices/selectors'
+import { getLoading } from '../../state/ui/selectors'
+import { fetchDevices } from '../../state/devices/actionCreators'
 
 const DevicesShowCase = ({
   className,
-  fetchDevices,
-  devices,
-  loading,
 }) => {
+  const dispatch = useDispatch()
+  const devices = useSelector(getDevices)
+  const loading = useSelector(getLoading)
+
   useEffect(() => {
     if (devices.length === 0) {
-      fetchDevices()
+      dispatch(fetchDevices())
     }
   }, [])
 
@@ -89,7 +93,4 @@ export default DevicesShowCase
 
 DevicesShowCase.propTypes = {
   className: PropTypes.string.isRequired,
-  fetchDevices: PropTypes.func.isRequired,
-  devices: PropTypes.arrayOf(deviceWithoutDetails).isRequired,
-  loading: PropTypes.string.isRequired,
 }
