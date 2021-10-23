@@ -1,5 +1,5 @@
 import React from 'react'
-import ReactRouter from 'react-router'
+import router from 'react-router'
 import { cleanup } from '@testing-library/react'
 
 import DeviceActions from './DeviceActions.component'
@@ -17,7 +17,7 @@ describe('DeviceActions', () => {
   }
 
   it('should render everything according to props', () => {
-    jest.spyOn(ReactRouter, 'useParams').mockReturnValue({ id: '1234' })
+    jest.spyOn(router, 'useParams').mockReturnValue({ id: '1234' })
 
     const { getAllByTestId } = wrappedRender(
       <DeviceActions {...defaultProps} />,

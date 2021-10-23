@@ -4,7 +4,7 @@ import BreadCrumbs from '../../commons/BreadCrumbs'
 import Layout from '../../commons/Layout'
 import Loader from '../../commons/Loader'
 
-const DeviceDetail = React.lazy(() => import('../../DeviceDetail/DeviceDetail.container'))
+const DeviceDetail = React.lazy(() => import('../../DeviceDetail'))
 
 const DetailPage = () => {
   return (

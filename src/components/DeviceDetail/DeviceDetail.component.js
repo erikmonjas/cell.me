@@ -1,18 +1,22 @@
 import React, { useEffect, Suspense, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { useParams } from 'react-router'
 import PropTypes from 'prop-types'
 import Loader from '../commons/Loader'
-import { deviceWithDetails } from '../../constants/models/devices'
+import { getLoading } from '../../state/ui/selectors'
+import { getDetails } from '../../state/devices/selectors'
+import { fetchDeviceDetails } from '../../state/devices/actionCreators'
 
 const DeviceInfo = React.lazy(() => import('./components/DeviceInfo/DeviceInfo.container'))
 const DeviceActions = React.lazy(() => import('./components/DeviceActions/DeviceActions.container'))
 
 const DeviceDetail = ({
   className,
-  loading,
-  fetchDeviceDetails,
-  details
 }) => {
+  const dispatch = useDispatch()
+  const details = useSelector(getDetails)
+  const loading = useSelector(getLoading)
+
   const [localDetails, setLocalDetails] = useState({
     imgUrl: '',
   })
@@ -26,7 +30,7 @@ const DeviceDetail = ({
       setLocalDetails(detailsFetched)
       setIsFetched(true)
     } else {
-      fetchDeviceDetails({ id })
+      dispatch(fetchDeviceDetails({ id }))
       setIsFetched(false)
     }
   }, [details])
@@ -60,7 +64,4 @@ export default DeviceDetail
 
 DeviceDetail.propTypes = {
   className: PropTypes.string.isRequired,
-  loading: PropTypes.string.isRequired,
-  details: PropTypes.objectOf(deviceWithDetails).isRequired,
-  fetchDeviceDetails: PropTypes.func.isRequired,
 }

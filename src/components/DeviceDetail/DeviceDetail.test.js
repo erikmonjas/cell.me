@@ -1,4 +1,5 @@
 import React from 'react'
+import * as redux from 'react-redux'
 import { cleanup } from '@testing-library/react'
 
 import wrappedRender from '../../utils/tests'
@@ -6,50 +7,62 @@ import DeviceDetail from './DeviceDetail.component'
 import { getMockStore } from '../../utils/tests/store'
 import mockDetails from '../../constants/mocks/details'
 import { deviceWithoutDetails } from '../../constants/mocks/device'
-import ReactRouter from 'react-router'
+import router from 'react-router'
+import { FETCH_DEVICE_DETAILS } from '../../state/devices/actionTypes'
 
 describe('DeviceDetail', () => {
+  const mockID = deviceWithoutDetails.id
+  const state = getMockStore()
   
-  afterEach(cleanup)
+  let useDispatchSpy, mockDispatchFn
+  
+  beforeEach(() => {
+    jest.spyOn(router, 'useParams').mockReturnValue({ id: mockID })
+    useDispatchSpy = jest.spyOn(redux, 'useDispatch')
+    mockDispatchFn = jest.fn()
+    useDispatchSpy.mockReturnValue(mockDispatchFn)
+  })
+  
+  afterEach(() => {
+    useDispatchSpy.mockClear()
+    cleanup()
+  })
 
   const defaultProps = {
     className: '',
-    fetchDeviceDetails: jest.fn(),
-    details: {},
-    loading: '',
   }
 
   it('should fetch details', () => {
     wrappedRender(
       <DeviceDetail {...defaultProps} />,
-      { state: getMockStore(), currentRoute: '/product/testid' }
+      { state, currentRoute: `/product/${mockID}` }
     )
 
-    expect(defaultProps.fetchDeviceDetails).toHaveBeenCalled()
+    expect(mockDispatchFn).toHaveBeenCalledWith({
+      payload: { id: mockID },
+      type: FETCH_DEVICE_DETAILS,
+    })
   })
 
   
   it('should not fetch details and show image', () => {
-    const localProps = {
-      ...defaultProps,
-      details: mockDetails
-    }
-    const mockID = deviceWithoutDetails.id
-
-    jest.spyOn(ReactRouter, 'useParams').mockReturnValue({ id: mockID })
-
-    const { getByTestId } = wrappedRender(
-      <DeviceDetail {...localProps} />,
-      {
-        state: getMockStore({ variation: {
-          devices: {
-            details: mockDetails
-          }
-      }}),
-      currentRoute: `/product/${mockID}`
+    const localState = getMockStore({
+      variation: {
+        devices: {
+          details: mockDetails
+        }
+      }
     })
 
-    expect(defaultProps.fetchDeviceDetails).not.toHaveBeenCalled()
+    const { getByTestId } = wrappedRender(
+      <DeviceDetail {...defaultProps} />,
+      {
+        state: localState,
+        currentRoute: `/product/${mockID}`
+      }
+    )
+
+    expect(mockDispatchFn).not.toHaveBeenCalled()
     expect(getByTestId('device-image')).toHaveAttribute('src', deviceWithoutDetails.imgUrl)
   })
 })

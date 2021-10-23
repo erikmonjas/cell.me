@@ -3,8 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import PropTypes from 'prop-types'
 import { ReactComponent as TrashIcon } from './assets/trash.svg'
 import { getRealID } from '../../../../../utils/commons'
-import { deviceWithDetails } from '../../../../../constants/models/devices'
-import { cartItem } from '../../../../../constants/models/cart'
+import { cartItem as cartItemModel } from '../../../../../constants/models/cart'
 import { 
   addToCart,
   removeFromCart,
@@ -90,5 +89,5 @@ export default CartItem
 
 CartItem.propTypes = {
   className: PropTypes.string.isRequired,
-  item: cartItem.isRequired,
+  item: cartItemModel.isRequired,
 }
