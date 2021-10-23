@@ -1,15 +1,16 @@
 import React, { Suspense } from 'react'
 import PropTypes from 'prop-types'
 
-import { cartItem } from '../../../constants/models/cart'
 import Loader from '../Loader/Loader.container'
+import { useSelector } from 'react-redux'
+import { getCartItems } from '../../../state/cart/selectors'
 
-const CartItem = React.lazy(() => import('./components/CartItem/CartItem.container'))
+const CartItem = React.lazy(() => import('./components/CartItem'))
 
 const CartContent = ({
   className,
-  items,
 }) => {
+  const items = useSelector(getCartItems)
   const itemsArray = Object.values(items)
   return (
     <div className={className}>
@@ -29,5 +30,4 @@ export default CartContent
 
 CartContent.propTypes = {
   className: PropTypes.string.isRequired,
-  items: PropTypes.objectOf(cartItem).isRequired
 }

@@ -6,7 +6,7 @@ import Loader from '../Loader/Loader.container'
 import { getCartItems } from '../../../state/cart/selectors'
 import { openDefaultModal } from '../../../state/ui/actionCreators'
 
-const CartContent = React.lazy(() => import('../CartContent/CartContent.container'))
+const CartContent = React.lazy(() => import('../CartContent'))
 
 const Cart = ({ className }) => {
   const cartItems = useSelector(getCartItems)

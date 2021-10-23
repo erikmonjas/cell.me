@@ -1,2 +1,2 @@
-export const getDevices = state => state.devices.devices
-export const getDetails = state => state.devices.details
+export const getDevices = ({ devices }) => devices.devices
+export const getDetails = ({ devices }) => devices.details

@@ -7,6 +7,8 @@ import mockCartItems from '../../../constants/mocks/cartItems'
 import mockDetails from '../../../constants/mocks/details'
 import { getMockStore } from '../../../utils/tests/store'
 
+const state = getMockStore()
+
 afterEach(cleanup)
 
 describe('CartContent', () => {
@@ -17,7 +19,8 @@ describe('CartContent', () => {
 
   it('should render empty cart', () => {
     const { getByTestId } = wrappedRender(
-      <CartContent {...defaultProps} />
+      <CartContent {...defaultProps} />,
+      { state }
     )
 
     expect(getByTestId('empty-cart')).toBeTruthy()
@@ -25,16 +28,15 @@ describe('CartContent', () => {
 
   
   it('should render cart item', async () => {
-    const localProps = {
-      ...defaultProps,
-      items: mockCartItems
-    }
-
+    const localState = getMockStore({
+      variation: {
+        cart: { items: mockCartItems },
+        devices: {details: mockDetails },
+      }
+    })
     const { getAllByTestId } = wrappedRender(
-      <CartContent {...localProps} />,
-      {state: getMockStore({
-        variation: { devices: { details: mockDetails } }
-      })}
+      <CartContent {...defaultProps} />,
+      {state: localState }
     )
 
     await waitFor(() => expect(getAllByTestId('cart-item')).toHaveLength(1))

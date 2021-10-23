@@ -9,9 +9,9 @@ import { ADD_TO_CART } from '../../../state/cart/actionTypes'
 let useDispatchSpy, mockDispatchFn
 
 beforeEach(() => {
-  useDispatchSpy = jest.spyOn(redux, 'useDispatch'); 
+  useDispatchSpy = jest.spyOn(redux, 'useDispatch')
   mockDispatchFn = jest.fn()
-  useDispatchSpy.mockReturnValue(mockDispatchFn);
+  useDispatchSpy.mockReturnValue(mockDispatchFn)
 })
 
 afterEach(() => {
