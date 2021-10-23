@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { firstLetterUpperCase } from '../../../../utils/text'
 import { stateReducer } from '../../../../utils/state/stateReducer'
 import AddToCartButton from '../../../commons/AddToCartButton'
-import RadioGroup from '../../../commons/RadioGroup/RadioGroup.container'
+import RadioGroup from '../../../commons/RadioGroup'
 import { deviceWithDetails } from '../../../../constants/models/devices'
 
 const DeviceActions = ({ className, details, id }) => {

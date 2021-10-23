@@ -2,7 +2,7 @@ import React, { Suspense } from 'react'
 import PropTypes from 'prop-types'
 
 import Layout from '../../commons/Layout'
-import Loader from '../../commons/Loader/Loader.container'
+import Loader from '../../commons/Loader'
 
 const DevicesShowcase = React.lazy(() => import('../../DevicesShowCase/DevicesShowCase.container'))
 

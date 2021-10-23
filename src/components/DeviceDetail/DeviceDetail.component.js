@@ -1,7 +1,7 @@
 import React, { useEffect, Suspense, useState } from 'react'
 import { useParams } from 'react-router'
 import PropTypes from 'prop-types'
-import Loader from '../commons/Loader/Loader.container'
+import Loader from '../commons/Loader'
 import { deviceWithDetails } from '../../constants/models/devices'
 
 const DeviceInfo = React.lazy(() => import('./components/DeviceInfo/DeviceInfo.container'))

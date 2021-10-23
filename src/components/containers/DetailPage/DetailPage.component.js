@@ -2,7 +2,7 @@ import React, { Suspense } from 'react'
 
 import BreadCrumbs from '../../commons/BreadCrumbs'
 import Layout from '../../commons/Layout'
-import Loader from '../../commons/Loader/Loader.container'
+import Loader from '../../commons/Loader'
 
 const DeviceDetail = React.lazy(() => import('../../DeviceDetail/DeviceDetail.container'))
 

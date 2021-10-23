@@ -2,7 +2,7 @@ import React, { Suspense } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import PropTypes from 'prop-types'
 import { ReactComponent as CartIcon } from './assets/cart.svg'
-import Loader from '../Loader/Loader.container'
+import Loader from '../Loader'
 import { getCartItems } from '../../../state/cart/selectors'
 import { openDefaultModal } from '../../../state/ui/actionCreators'
 

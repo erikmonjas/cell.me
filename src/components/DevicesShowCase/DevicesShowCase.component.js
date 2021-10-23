@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 import DeviceCard from './components/DeviceCard/DeviceCard.container'
 import { stateReducer } from '../../utils/state/stateReducer'
-import Loader from '../commons/Loader/Loader.container'
+import Loader from '../commons/Loader'
 import { deviceWithoutDetails } from '../../constants/models/devices'
 
 const DevicesShowCase = ({

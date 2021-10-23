@@ -1,7 +1,7 @@
 import React, { Suspense } from 'react'
 import PropTypes from 'prop-types'
 
-import Loader from '../Loader/Loader.container'
+import Loader from '../Loader'
 import { useSelector } from 'react-redux'
 import { getCartItems } from '../../../state/cart/selectors'
 
