@@ -8,7 +8,7 @@ import PropTypes from 'prop-types'
 
 import { theme } from '../../styles/theme'
 import GlobalStyle from '../../styles/GlobalStyle'
-import Home from '../containers/Home/Home.container'
+import Home from '../containers/Home'
 import NotFound from '../containers/NotFound/NotFound.container'
 import DetailPage from '../containers/DetailPage/DetailPage.container'
 

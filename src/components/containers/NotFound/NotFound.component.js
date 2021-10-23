@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import Layout from '../../commons/Layout/Layout.container'
+import Layout from '../../commons/Layout'
 
 const NotFound = ({ className }) => {
   return (

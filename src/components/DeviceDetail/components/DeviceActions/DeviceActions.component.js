@@ -2,7 +2,7 @@ import React, { useReducer, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import { firstLetterUpperCase } from '../../../../utils/text'
 import { stateReducer } from '../../../../utils/state/stateReducer'
-import AddToCartButton from '../../../commons/AddToCartButton/AddToCartButton.container'
+import AddToCartButton from '../../../commons/AddToCartButton'
 import RadioGroup from '../../../commons/RadioGroup/RadioGroup.container'
 import { deviceWithDetails } from '../../../../constants/models/devices'
 

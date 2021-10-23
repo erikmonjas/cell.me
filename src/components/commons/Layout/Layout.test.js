@@ -6,20 +6,20 @@ import wrappedRender from '../../../utils/tests'
 import modalTypes from '../../../constants/modals/modalTypes'
 import { getMockStore } from '../../../utils/tests/store'
 
-afterEach(cleanup)
-
 describe('Layout', () => {
+  const state = getMockStore()
+
+  afterEach(cleanup)
+
   const defaultProps = {
     className: '',
     children: <p data-testid="test-child">testing</p>,
-    openModal: '',
-    closeModal: jest.fn(),
   }
 
   it('should render everything according to props', () => {
     const { getByTestId } = wrappedRender(
       <Layout {...defaultProps} />,
-      { state: getMockStore() }
+      { state }
     )
 
     expect(getByTestId('test-child')).toBeTruthy()
@@ -28,19 +28,19 @@ describe('Layout', () => {
   })
   
   it('should render modal', () => {
-    const localProps = {
-      ...defaultProps,
-      openModal: modalTypes.DEFAULT
-    }
-    const { getByTestId } = wrappedRender(
-      <Layout {...localProps} />,
-      { state: getMockStore({ variation: {
-        ui: {
-          modal: {
-            children: <p>testing</p>
-          }
+    const localState = {
+      ...state,
+      ui: {
+        modal: {
+          children: <p>TESTING MODAL</p>,
+          open: modalTypes.DEFAULT,
         }
-      }})}
+      }
+    }
+
+    const { getByTestId } = wrappedRender(
+      <Layout {...defaultProps} />,
+      { state: localState }
     )
 
     expect(getByTestId('default-modal')).toBeTruthy()

@@ -1,14 +1,20 @@
 import React, { useEffect } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
 import PropTypes from 'prop-types'
 import Header from '../Header/Header.container'
 import DefaultModal from '../DefaultModal/DefaultModal.container'
 import modalTypes from '../../../constants/modals/modalTypes'
+import { getOpenModal } from '../../../state/ui/selectors'
+import { closeModal } from '../../../state/ui/actionCreators'
 
-const Layout = ({ className, children, openModal, closeModal }) => {
+const Layout = ({ className, children }) => {
+  const dispatch = useDispatch()
+  const openModal = useSelector(getOpenModal)
+
   useEffect(() => {
-    window.addEventListener('beforeunload', () => closeModal())
+    window.addEventListener('beforeunload', () => dispatch(closeModal()))
     return () => {
-      window.removeEventListener('beforeunload', () => closeModal())
+      window.removeEventListener('beforeunload', () => dispatch(closeModal()))
     }
   }, [])
 
@@ -38,6 +44,4 @@ Layout.propTypes = {
     PropTypes.arrayOf(PropTypes.node),
     PropTypes.node
   ]).isRequired,
-  openModal: PropTypes.string.isRequired,
-  closeModal: PropTypes.func.isRequired,
 }

@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
-import Cart from '../Cart/Cart.container'
+import Cart from '../Cart'
 
 const Header = ({ className }) => {
   return (

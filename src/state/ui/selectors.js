@@ -1,4 +1,4 @@
-export const getLoading = state => state.ui.loading
-export const getModal = state => state.ui.modal
-export const getModalChildren = state => state.ui.modal.children
-export const getOpenModal = state => state.ui.modal.open
+export const getLoading = ({ ui }) => ui.loading
+export const getModal = ({ ui }) => ui.modal
+export const getModalChildren = ({ ui }) => ui.modal.children
+export const getOpenModal = ({ ui }) => ui.modal.open

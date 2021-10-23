@@ -1,18 +1,22 @@
 import React from 'react'
+import { useDispatch } from 'react-redux'
 import PropTypes from 'prop-types'
+import { addToCart } from '../../../state/cart/actionCreators'
 
 const AddToCartButton = ({
   className,
   id,
   color,
   storage,
-  addToCart
  }) => {
+  const dispatch = useDispatch()
   return (
     <button
       data-testid="add-to-cart-button"
       className={className}
-      onClick={() => addToCart({ id, color, storage })}
+      onClick={() => dispatch(
+        addToCart({ id, color, storage })
+      )}
     >
       Add to cart
     </button>
@@ -26,5 +30,4 @@ AddToCartButton.propTypes = {
   id: PropTypes.string.isRequired,
   color: PropTypes.number.isRequired,
   storage: PropTypes.number.isRequired,
-  addToCart: PropTypes.func.isRequired,
 }
