@@ -7,7 +7,7 @@ import { getLoading } from '../../state/ui/selectors'
 import { getDetails } from '../../state/devices/selectors'
 import { fetchDeviceDetails } from '../../state/devices/actionCreators'
 
-const DeviceInfo = React.lazy(() => import('./components/DeviceInfo/DeviceInfo.container'))
+const DeviceInfo = React.lazy(() => import('./components/DeviceInfo'))
 const DeviceActions = React.lazy(() => import('./components/DeviceActions'))
 
 const DeviceDetail = ({

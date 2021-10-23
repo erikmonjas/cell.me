@@ -1,9 +1,11 @@
 import React from 'react'
+import { useSelector } from 'react-redux'
 import PropTypes from 'prop-types'
 import { firstLetterUpperCase } from '../../../../utils/text'
-import { deviceWithDetails } from '../../../../constants/models/devices'
+import { getDetails } from '../../../../state/devices/selectors'
 
-const DeviceInfo = ({ className, details, id }) => {
+const DeviceInfo = ({ className, id }) => {
+  const details = useSelector(getDetails)
   const deviceDetails = details[id]
   const otherFeatures = Object.keys(deviceDetails).reduce((acc = [], key) => {
     const unnecesaryKeys = ['id', 'brand', 'model', 'price', 'imgUrl', 'colors', 'internalMemory', 'options']
@@ -48,5 +50,4 @@ export default DeviceInfo
 DeviceInfo.propTypes = {
   className: PropTypes.string.isRequired,
   id: PropTypes.string.isRequired,
-  details: PropTypes.objectOf(deviceWithDetails).isRequired,
 }
