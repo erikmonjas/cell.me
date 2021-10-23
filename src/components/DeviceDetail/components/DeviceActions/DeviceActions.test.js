@@ -5,7 +5,16 @@ import { cleanup } from '@testing-library/react'
 import DeviceActions from './DeviceActions.component'
 import mockDevice from '../../../../constants/mocks/device'
 import wrappedRender from '../../../../utils/tests'
+import { getMockStore } from '../../../../utils/tests/store'
 import { firstLetterUpperCase } from '../../../../utils/text'
+
+const state = getMockStore({
+  variation: {
+    devices: {
+      details: { [mockDevice.id]: mockDevice }
+    }
+  }
+})
 
 afterEach(cleanup)
 
@@ -13,7 +22,6 @@ describe('DeviceActions', () => {
   const defaultProps = {
     className: '',
     id: mockDevice.id,
-    details: {[mockDevice.id]: mockDevice}
   }
 
   it('should render everything according to props', () => {
@@ -21,11 +29,13 @@ describe('DeviceActions', () => {
 
     const { getAllByTestId } = wrappedRender(
       <DeviceActions {...defaultProps} />,
-      { currentRoute: '/product/testid' }
+      {
+        state,
+        currentRoute: '/product/testid'
+      }
     )
 
-    Object.keys(defaultProps.details[mockDevice.id].options).map((key, index) => {
-      expect(getAllByTestId('option-title')[index]).toHaveTextContent(firstLetterUpperCase(key))
-    })
+    expect(getAllByTestId('option-title')[0]).toHaveTextContent(firstLetterUpperCase('Colors'))
+    expect(getAllByTestId('option-title')[1]).toHaveTextContent(firstLetterUpperCase('Storages'))
   })
 })

@@ -4,9 +4,12 @@ import { firstLetterUpperCase } from '../../../../utils/text'
 import { stateReducer } from '../../../../utils/state/stateReducer'
 import AddToCartButton from '../../../commons/AddToCartButton'
 import RadioGroup from '../../../commons/RadioGroup'
-import { deviceWithDetails } from '../../../../constants/models/devices'
+import { useSelector } from 'react-redux'
+import { getDetails } from '../../../../state/devices/selectors'
 
-const DeviceActions = ({ className, details, id }) => {
+const DeviceActions = ({ className, id }) => {
+  const details = useSelector(getDetails)
+
   const { options, price } = details[id]
 
   const generateState = () => Object.keys(options).reduce((acc, key) => ({
@@ -59,5 +62,4 @@ export default DeviceActions
 DeviceActions.propTypes = {
   className: PropTypes.string.isRequired,
   id: PropTypes.string.isRequired,
-  details: PropTypes.objectOf(deviceWithDetails).isRequired,
 }
