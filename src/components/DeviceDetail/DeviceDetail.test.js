@@ -17,6 +17,7 @@ describe('DeviceDetail', () => {
   let useDispatchSpy, mockDispatchFn
   
   beforeEach(() => {
+    window.scrollTo = jest.fn()
     jest.spyOn(router, 'useParams').mockReturnValue({ id: mockID })
     useDispatchSpy = jest.spyOn(redux, 'useDispatch')
     mockDispatchFn = jest.fn()

@@ -25,7 +25,7 @@ export default styled(DefaultModal)`
     transform: translate(-50%, -50%);
     background-color: ${({ theme }) => theme.colors.white};
     padding: 40px;
-    box-shadow: 0px 14px 15px 0px rgba(0,0,0,0.1);
+    box-shadow: 0px 8px 8px 0px rgba(0,176,255,0.1);
     border-radius: 4px;
     opacity: 0;
     animation: enter-modal 0.5s forwards;

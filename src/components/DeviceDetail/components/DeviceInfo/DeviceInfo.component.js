@@ -27,7 +27,7 @@ const DeviceInfo = ({ className, id }) => {
           {deviceDetails.brand} {deviceDetails.model}
         </h2>
         <p className="device-price" data-testid="device-price">
-          {deviceDetails.price}€
+          {deviceDetails.price ? `${deviceDetails.price}€` : 'Out of stock'}
         </p>
       </div>
       <div className="specifications-wrapper">

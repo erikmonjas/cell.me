@@ -37,7 +37,7 @@ export default styled(DeviceDetail)`
     width: 150px;
     height: fit-content;
     position: sticky;
-    top: 15px;
+    top: 80px;
     left: 0;
     img {
       width: 100%;

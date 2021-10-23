@@ -8,10 +8,12 @@ export default styled(App)`
   color: #737373;
 
   .container {
+    width: 100%;
     max-width: 950px;
     margin: 0 auto;
     @media (max-width: 992px) {
       width: 90%;
+      max-width: initial;
     }
   }
 `

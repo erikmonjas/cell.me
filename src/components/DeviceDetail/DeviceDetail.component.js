@@ -25,6 +25,13 @@ const DeviceDetail = ({
   const { id } = useParams()
 
   useEffect(() => {
+    window && isFetched && window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    })
+  }, [isFetched])
+
+  useEffect(() => {
     const detailsFetched = details[id]
     if (detailsFetched) {
       setLocalDetails(detailsFetched)
