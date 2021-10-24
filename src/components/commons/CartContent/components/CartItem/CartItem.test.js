@@ -12,10 +12,8 @@ import { getMockStore } from '../../../../../utils/tests/store'
 import { ADD_TO_CART, REMOVE_FROM_CART, SUBTRACT_FROM_CART } from '../../../../../state/cart/actionTypes'
 
 const state = getMockStore({
-  variation: {
-    devices: {
-      details: mockDetails
-    }
+  devices: {
+    details: mockDetails
   }
 })
 

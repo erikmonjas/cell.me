@@ -7,11 +7,16 @@ import { Provider } from 'react-redux'
 import configureStore from 'redux-mock-store'
 
 import { theme } from '../../styles/theme'
+import { getMockStore } from './store'
 
 const mockStore = configureStore([])
-const store = (state = {}) => mockStore(state)
+const store = mockStore
 
-export const FullWrapper = ({ children, currentRoute = '/', state = {} }) => {
+export const FullWrapper = ({
+  children,
+  currentRoute = '/',
+  state = getMockStore(),
+}) => {
   const history = createMemoryHistory()
   history.push(currentRoute)
 

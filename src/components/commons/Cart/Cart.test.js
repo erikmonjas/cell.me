@@ -9,10 +9,8 @@ import { getMockStore } from '../../../utils/tests/store'
 import { OPEN_DEFAULT_MODAL } from '../../../state/ui/actionTypes'
 
 const state = getMockStore({ 
-  variation: {
-    cart: {
-      items: mockCartItems,
-    }
+  cart: {
+    items: mockCartItems,
   }
 })
 

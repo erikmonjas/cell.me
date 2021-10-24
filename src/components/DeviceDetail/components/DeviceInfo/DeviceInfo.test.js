@@ -7,10 +7,8 @@ import { getMockStore } from '../../../../utils/tests/store'
 import wrappedRender from '../../../../utils/tests'
 
 const state = getMockStore({
-  variation: {
-    devices: {
-      details: { [mockDevice.id]: mockDevice }
-    }
+  devices: {
+    details: { [mockDevice.id]: mockDevice }
   }
 })
 

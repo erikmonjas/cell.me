@@ -48,10 +48,8 @@ describe('DeviceDetail', () => {
   
   it('should not fetch details and show image', () => {
     const localState = getMockStore({
-      variation: {
-        devices: {
-          details: mockDetails
-        }
+      devices: {
+        details: mockDetails
       }
     })
 

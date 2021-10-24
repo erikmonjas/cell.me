@@ -9,10 +9,8 @@ import { getMockStore } from '../../../../utils/tests/store'
 import { firstLetterUpperCase } from '../../../../utils/text'
 
 const state = getMockStore({
-  variation: {
-    devices: {
-      details: { [mockDevice.id]: mockDevice }
-    }
+  devices: {
+    details: { [mockDevice.id]: mockDevice }
   }
 })
 

@@ -7,8 +7,6 @@ import modalTypes from '../../../constants/modals/modalTypes'
 import { getMockStore } from '../../../utils/tests/store'
 
 describe('Layout', () => {
-  const state = getMockStore()
-
   afterEach(cleanup)
 
   const defaultProps = {
@@ -18,8 +16,7 @@ describe('Layout', () => {
 
   it('should render everything according to props', () => {
     const { getByTestId } = wrappedRender(
-      <Layout {...defaultProps} />,
-      { state }
+      <Layout {...defaultProps} />
     )
 
     expect(getByTestId('test-child')).toBeTruthy()
@@ -28,15 +25,14 @@ describe('Layout', () => {
   })
   
   it('should render modal', () => {
-    const localState = {
-      ...state,
+    const localState = getMockStore({
       ui: {
         modal: {
           children: <p>TESTING MODAL</p>,
           open: modalTypes.DEFAULT,
         }
       }
-    }
+    })
 
     const { getByTestId } = wrappedRender(
       <Layout {...defaultProps} />,

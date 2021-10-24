@@ -8,11 +8,9 @@ import { getMockStore } from '../../../utils/tests/store'
 import { CLOSE_MODAL } from '../../../state/ui/actionTypes'
 
 const state = getMockStore({
-  variation: {
-    ui: {
-      modal: { 
-        children: <p data-testid="test-child">testing</p>
-      }
+  ui: {
+    modal: { 
+      children: <p data-testid="test-child">testing</p>
     }
   }
 })

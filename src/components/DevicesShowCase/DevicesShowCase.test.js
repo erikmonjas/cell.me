@@ -10,13 +10,11 @@ import { FETCH_DEVICES } from '../../state/devices/actionTypes'
 
 describe('DevicesShowCase', () => {
   const state = getMockStore({
-    variation: {
-      devices: {
-        devices: [ deviceWithoutDetails ]
-      },
-      ui: {
-        loading: ''
-      }
+    devices: {
+      devices: [ deviceWithoutDetails ]
+    },
+    ui: {
+      loading: ''
     }
   })
   
